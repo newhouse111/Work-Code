@@ -1,4 +1,4 @@
-const VERSAO = 'controle-estoque-v5';
+const VERSAO = 'controle-estoque-v6';
 const ARQUIVOS = ['./', './index.html', './manifest.webmanifest'];
 
 self.addEventListener('install', e => {
@@ -10,10 +10,10 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   e.respondWith(
-    caches.match(e.request, {ignoreSearch: true}).then(r => r || fetch(e.request).then(resp => {
+    fetch(e.request).then(resp => {
       const copia = resp.clone();
       caches.open(VERSAO).then(c => c.put(e.request, copia));
       return resp;
-    }).catch(() => caches.match('./index.html')))
+    }).catch(() => caches.match(e.request, {ignoreSearch: true}).then(r => r || caches.match('./index.html')))
   );
 });
