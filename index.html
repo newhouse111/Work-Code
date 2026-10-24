@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Estoque 0103">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
   :root{padding-top:env(safe-area-inset-top,0px)}
   :root{
@@ -46,6 +46,7 @@
   h1{margin:0;font-size:22px;letter-spacing:-.01em}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0}
   label{font-size:11px;color:var(--mut);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+  label[data-t]::before{content:attr(data-t)}
   input{width:100%;font:inherit;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx);min-width:0}
   input.code{font-family:var(--mono);text-transform:uppercase}
   input:focus,button:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
@@ -134,18 +135,18 @@
     <div class="card">
       <div class="grid2">
         <div>
-          <label for="cod">Codigo</label>
+          <label for="cod" data-t="Codigo"></label>
           <div class="clr"><input id="cod" class="code" autocomplete="off" autocapitalize="characters"><button type="button" class="xbtn" data-limpa="cod" aria-label="Apagar codigo" hidden>×</button></div>
         </div>
         <div>
-          <label for="nome">Nome</label>
-          <div class="clr"><input id="nome" autocomplete="off"><button type="button" class="xbtn" data-limpa="nome" aria-label="Apagar nome" hidden>×</button></div>
+          <label for="fItem" data-t="Nome"></label>
+          <div class="clr"><input id="fItem" name="f_item_x" autocomplete="off" autocorrect="off" spellcheck="false"><button type="button" class="xbtn" data-limpa="fItem" aria-label="Apagar" hidden>×</button></div>
         </div>
       </div>
       <div class="sug" id="sugMain" hidden></div>
       <div class="lanc">
         <div style="flex:1;min-width:0">
-          <label for="qtd">Quantidade</label>
+          <label for="qtd" data-t="Quantidade"></label>
           <input id="qtd" placeholder="(1 ou +1) ou -1" type="text" inputmode="text" autocomplete="off" enterkeyhint="done" class="num">
         </div>
         <button class="big pri" id="btnLancar">Registrar</button>
@@ -183,12 +184,12 @@
       <h2>Novo item</h2>
       <div class="grid2">
         <div>
-          <label for="novoCod">Codigo</label>
+          <label for="novoCod" data-t="Codigo"></label>
           <input id="novoCod" class="code" autocomplete="off" autocapitalize="characters">
         </div>
         <div>
-          <label for="novoNome">Nome</label>
-          <input id="novoNome" autocomplete="off" enterkeyhint="done">
+          <label for="fNovoItem" data-t="Nome"></label>
+          <input id="fNovoItem" name="f_novo_x" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done">
         </div>
       </div>
       <button class="big pri" id="btnNovo" style="margin-top:12px">Adicionar item</button>
@@ -319,10 +320,10 @@ function autocompletar(codEl, nomeEl, box){
   box.addEventListener('pointerdown', e=>{ const b=e.target.closest('.opt'); if(!b) return; e.preventDefault(); escolher(+b.dataset.i); });
   return ()=>{ box.hidden = true; res = []; };
 }
-const fecharSugMain = autocompletar($('cod'), $('nome'), $('sugMain'));
+const fecharSugMain = autocompletar($('cod'), $('fItem'), $('sugMain'));
 
 function atualizaX(){ document.querySelectorAll('[data-limpa]').forEach(b=>{ b.hidden = !$(b.dataset.limpa).value; }); }
-['cod','nome'].forEach(id=>$(id).addEventListener('input', atualizaX));
+['cod','fItem'].forEach(id=>$(id).addEventListener('input', atualizaX));
 document.querySelectorAll('[data-limpa]').forEach(b=>{
   b.addEventListener('pointerdown', e=>e.preventDefault());
   b.addEventListener('click', ()=>{ const el=$(b.dataset.limpa); el.value=''; fecharSugMain(); atualizaX(); el.focus({preventScroll:true}); });
@@ -396,7 +397,7 @@ function lerQtd(v){
 }
 const fmt = n => { n = Number(n)||0; return n>0 ? '+'+n : String(n); };
 function lancar(){
-  const {cod, nome} = resolver($('cod').value, $('nome').value);
+  const {cod, nome} = resolver($('cod').value, $('fItem').value);
   if (!cod && !nome){ toast('Preencha o codigo ou o nome'); return; }
   const lq = lerQtd($('qtd').value);
   if (!lq){ toast('Digite a quantidade, tipo +5 ou -2'); return; }
@@ -405,7 +406,7 @@ function lancar(){
   const t = Date.now();
   st.mov.push({id:String(t)+Math.floor(Math.random()*1000), cod, nome, q, tipo, t});
   salvar(); render();
-  $('cod').value=''; $('nome').value=''; $('qtd').value=''; fecharSugMain();
+  $('cod').value=''; $('fItem').value=''; $('qtd').value=''; fecharSugMain();
   toast((tipo==='e'?'+':'−')+q+' '+rotulo(cod,nome));
 }
 $('btnLancar').onclick = lancar;
@@ -460,30 +461,30 @@ function renderItens(){
       + (aberto ? `<li class="ajuste">
         <div class="grid2" style="flex:1 1 100%">
           <input id="itCod" class="code" value="${esc(c)}" aria-label="Codigo" autocomplete="off">
-          <input id="itNome" value="${esc(st.cat[c])}" aria-label="Nome" autocomplete="off">
+          <input id="fEdItem" name="f_ed_x" value="${esc(st.cat[c])}" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
         <button class="danger ${apagarCat===c?'sure':''}" data-itdel>${apagarCat===c?'Toque de novo':'Excluir'}</button>
         <button class="big pri" data-itsalvar>Salvar</button></li>` : '');
   }).join('');
 }
 function novoItem(){
-  const cod = $('novoCod').value.trim().toUpperCase(), nome = $('novoNome').value.trim();
+  const cod = $('novoCod').value.trim().toUpperCase(), nome = $('fNovoItem').value.trim();
   if (!cod || !nome){ toast('Preencha o codigo e o nome'); return; }
   if (st.cat[cod]){ toast('Esse codigo já existe'); return; }
   st.cat[cod] = nome;
-  $('novoCod').value=''; $('novoNome').value='';
+  $('novoCod').value=''; $('fNovoItem').value='';
   salvar(); render(); toast('Item adicionado');
 }
 $('btnNovo').onclick = novoItem;
-$('novoNome').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); novoItem(); } });
-$('novoCod').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); $('novoNome').focus(); } });
+$('fNovoItem').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); novoItem(); } });
+$('novoCod').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); $('fNovoItem').focus(); } });
 $('buscaItem').addEventListener('input', ()=>{ itemAberto=null; renderItens(); });
 $('listaItens').onclick = e=>{
   const b = e.target.closest('[data-it]');
   if (b){ itemAberto = itemAberto===b.dataset.it ? null : b.dataset.it; apagarCat=null; renderItens(); return; }
   const c = itemAberto; if (!c) return;
   if (e.target.closest('[data-itsalvar]')){
-    const nc = $('itCod').value.trim().toUpperCase(), nn = $('itNome').value.trim();
+    const nc = $('itCod').value.trim().toUpperCase(), nn = $('fEdItem').value.trim();
     if (!nc || !nn){ toast('Preencha o codigo e o nome'); return; }
     if (nc!==c && st.cat[nc]){ toast('Esse codigo já existe'); return; }
     delete st.cat[c]; st.cat[nc] = nn;
