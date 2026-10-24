@@ -28,7 +28,7 @@
   html,body{height:100%;overscroll-behavior:none}
   body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--font);font-size:16px}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail);transform:translateY(var(--vv,0px))}
-  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;transform:translateY(var(--vv,0px));background:var(--rail);color:var(--rail-tx);
+  nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;transform:translateY(var(--vv,0px));background:var(--rail);color:var(--rail-tx);
     padding:10px max(10px,env(safe-area-inset-right,0px)) 8px max(10px,env(safe-area-inset-left,0px))}
   .brand{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:0 4px 8px}
   .brand small{font-weight:600;letter-spacing:0;text-transform:none;color:#fff;font-size:16px;font-variant-numeric:tabular-nums}
@@ -40,7 +40,7 @@
   .badge{background:var(--sai);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;flex:none}
   @media (max-width:380px){ .tab svg{display:none} }
   @media (min-width:700px){ .brand,.tabs{max-width:560px} }
-  main{padding:14px max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+  main{padding:calc(var(--navh,100px) + 14px) max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
   .view{max-width:560px;display:flex;flex-direction:column;gap:14px}
   .view[hidden],[hidden]{display:none!important}
   h1{margin:0;font-size:22px;letter-spacing:-.01em}
@@ -571,6 +571,9 @@ if (window.visualViewport){
   vv.addEventListener('scroll', ajustaTopo); vv.addEventListener('resize', ajustaTopo);
   document.addEventListener('focusout', ()=>setTimeout(ajustaTopo, 300));
 }
+
+const medeNav = ()=>document.documentElement.style.setProperty('--navh', document.querySelector('nav').offsetHeight + 'px');
+medeNav(); window.addEventListener('resize', medeNav);
 
 render();
 
