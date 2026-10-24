@@ -50,6 +50,8 @@
   input{width:100%;font:inherit;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx);min-width:0}
   input.code{font-family:var(--mono);text-transform:uppercase}
   input:focus,button:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+  input[type=search]{-webkit-appearance:none;appearance:none}
+  input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;display:none}
   .grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
   @media (min-width:700px){.grid2{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}}
   .big{border:0;border-radius:12px;padding:16px 10px;font:inherit;font-size:17px;font-weight:700;color:var(--on);width:100%}
@@ -79,7 +81,6 @@
   input::placeholder{color:var(--mut);opacity:.7;font-weight:500}
   input.num::placeholder{font-size:17px}
   code.cc{font-family:var(--mono);font-size:13px;font-weight:600;background:color-mix(in srgb,var(--pri) 14%,transparent);color:var(--pri);padding:2px 7px;border-radius:6px}
-  input[type=search]{-webkit-appearance:none;appearance:none}
   .clr{position:relative}
   .clr input{padding-right:40px;padding-left:10px}
   .xbtn{position:absolute;top:50%;right:4px;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:var(--mut);font-size:22px;line-height:1;display:grid;place-items:center}
@@ -136,18 +137,18 @@
       <div class="grid2">
         <div>
           <label for="cod" data-t="Codigo"></label>
-          <div class="clr"><input id="cod" class="code" autocomplete="off" autocapitalize="characters"><button type="button" class="xbtn" data-limpa="cod" aria-label="Apagar codigo" hidden>×</button></div>
+          <div class="clr"><input id="cod" type="search" enterkeyhint="done" class="code" autocomplete="off" autocapitalize="characters"><button type="button" class="xbtn" data-limpa="cod" aria-label="Apagar codigo" hidden>×</button></div>
         </div>
         <div>
           <label for="fItem" data-t="Nome"></label>
-          <div class="clr"><input id="fItem" name="f_item_x" autocomplete="off" autocorrect="off" spellcheck="false"><button type="button" class="xbtn" data-limpa="fItem" aria-label="Apagar" hidden>×</button></div>
+          <div class="clr"><input id="fItem" type="search" enterkeyhint="done" name="f_item_x" autocomplete="off" autocorrect="off" spellcheck="false"><button type="button" class="xbtn" data-limpa="fItem" aria-label="Apagar" hidden>×</button></div>
         </div>
       </div>
       <div class="sug" id="sugMain" hidden></div>
       <div class="lanc">
         <div style="flex:1;min-width:0">
           <label for="qtd" data-t="Quantidade"></label>
-          <input id="qtd" placeholder="(1 ou +1) ou -1" type="text" inputmode="text" autocomplete="off" enterkeyhint="done" class="num">
+          <input id="qtd" placeholder="(1 ou +1) ou -1" type="search" inputmode="text" autocomplete="off" enterkeyhint="done" class="num">
         </div>
         <button class="big pri" id="btnLancar">Registrar</button>
       </div>
@@ -185,16 +186,16 @@
       <div class="grid2">
         <div>
           <label for="novoCod" data-t="Codigo"></label>
-          <input id="novoCod" class="code" autocomplete="off" autocapitalize="characters">
+          <input id="novoCod" type="search" enterkeyhint="done" class="code" autocomplete="off" autocapitalize="characters">
         </div>
         <div>
           <label for="fNovoItem" data-t="Nome"></label>
-          <input id="fNovoItem" name="f_novo_x" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done">
+          <input id="fNovoItem" type="search" name="f_novo_x" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done">
         </div>
       </div>
       <button class="big pri" id="btnNovo" style="margin-top:12px">Adicionar item</button>
     </div>
-    <input id="buscaItem" placeholder="Procurar" autocomplete="off" type="search">
+    <input id="buscaItem" placeholder="Procurar" autocomplete="off" type="search" enterkeyhint="done">
     <div class="card">
       <ul id="listaItens"></ul>
     </div>
@@ -379,7 +380,7 @@ function render(){
         <div class="hist">${i.movs.slice().sort((a,b)=>a.t-b.t).map(x=>`<span class="hc ${x.tipo==='e'?'p':'n'}"><b>${x.tipo==='e'?'+':'−'}${x.q}</b> ${x.aj?'ajuste ':''}${dataCurta(x.t)} ${hora(x.t)}</span>`).join('')}</div></div>
       <button class="aj" data-aj="${esc(i.k)}" aria-expanded="${aberto}" aria-label="Alterar ou apagar este item">${aberto?'×':LAPIS}</button></li>`
       + (aberto ? `<li class="ajuste">
-        <input id="ajQtd" type="text" inputmode="text" autocomplete="off" enterkeyhint="done" class="num" aria-label="Quantidade" value="${fmt(ajQtd)}" style="flex:1 1 100%">
+        <input id="ajQtd" type="search" inputmode="text" autocomplete="off" enterkeyhint="done" class="num" aria-label="Quantidade" value="${fmt(ajQtd)}" style="flex:1 1 100%">
         <button class="danger ${apagarItem?'sure':''}" data-apagar>${apagarItem?'Toque de novo':'Apagar item'}</button>
         <button class="big pri" data-salvar>Salvar</button></li>` : '');
   }).join('') : '<div class="empty">Nada mudou hoje.</div>';
@@ -460,8 +461,8 @@ function renderItens(){
       <button class="aj" data-it="${esc(c)}" aria-expanded="${aberto}" aria-label="Editar item">${aberto?'×':LAPIS}</button></li>`
       + (aberto ? `<li class="ajuste">
         <div class="grid2" style="flex:1 1 100%">
-          <input id="itCod" class="code" value="${esc(c)}" aria-label="Codigo" autocomplete="off">
-          <input id="fEdItem" name="f_ed_x" value="${esc(st.cat[c])}" autocomplete="off" autocorrect="off" spellcheck="false">
+          <input id="itCod" type="search" enterkeyhint="done" class="code" value="${esc(c)}" aria-label="Codigo" autocomplete="off">
+          <input id="fEdItem" type="search" enterkeyhint="done" name="f_ed_x" value="${esc(st.cat[c])}" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
         <button class="danger ${apagarCat===c?'sure':''}" data-itdel>${apagarCat===c?'Toque de novo':'Excluir'}</button>
         <button class="big pri" data-itsalvar>Salvar</button></li>` : '');
