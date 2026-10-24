@@ -25,7 +25,7 @@
     --bg:#111614; --card:#1a201e; --tx:#e8eeeb; --mut:#95a19d; --line:#2b3431; --soft:#151b19;
     --ent:#2fa463; --sai:#e0604d; --pri:#2b8a73; --warn:#f0b54a; --warn-bg:#2a2210; color-scheme:dark}}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{height:100%}
+  html,body{height:100%;overscroll-behavior:none}
   body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--font);font-size:16px}
   body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail);transform:translateY(var(--vv,0px))}
   nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;transform:translateY(var(--vv,0px));background:var(--rail);color:var(--rail-tx);
@@ -521,7 +521,7 @@ $('btnCopiar').onclick = ()=>{
   if (!g.length){ toast('Nada para copiar'); return; }
   const [y,m,d] = dia.split('-');
   const semana = new Date(+y,+m-1,+d).toLocaleDateString('pt-BR',{weekday:'long'});
-  const linha = '────────────────────';
+  const linha = '──────────';
   const ent = g.filter(i=>i.saldo>0), sai = g.filter(i=>i.saldo<0);
   const larg = Math.max(...g.map(i=>String(Math.abs(i.saldo)).length)) + 1;
   const bloco = i=>{
@@ -563,8 +563,13 @@ document.addEventListener('focusin', e=>{
 
 if (window.visualViewport){
   const vv = window.visualViewport;
-  const ajustaTopo = ()=>{ document.documentElement.style.setProperty('--vv', Math.max(0, vv.offsetTop) + 'px'); };
+  const ajustaTopo = ()=>{
+    const tecladoAberto = window.innerHeight - vv.height > 150;
+    const off = tecladoAberto ? Math.max(0, Math.round(vv.offsetTop)) : 0;
+    document.documentElement.style.setProperty('--vv', off + 'px');
+  };
   vv.addEventListener('scroll', ajustaTopo); vv.addEventListener('resize', ajustaTopo);
+  document.addEventListener('focusout', ()=>setTimeout(ajustaTopo, 300));
 }
 
 render();
