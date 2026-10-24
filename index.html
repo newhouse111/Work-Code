@@ -27,8 +27,8 @@
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
   body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--font);font-size:16px}
-  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail)}
-  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--rail);color:var(--rail-tx);
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail);transform:translateY(var(--vv,0px))}
+  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;transform:translateY(var(--vv,0px));background:var(--rail);color:var(--rail-tx);
     padding:10px max(10px,env(safe-area-inset-right,0px)) 8px max(10px,env(safe-area-inset-left,0px))}
   .brand{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:0 4px 8px}
   .brand small{font-weight:600;letter-spacing:0;text-transform:none;color:#fff;font-size:16px;font-variant-numeric:tabular-nums}
@@ -228,6 +228,7 @@ function nomeDia(k){
   if (k===diaDe(d)) return 'Ontem';
   const [y,m,dd] = k.split('-'); return new Date(+y,+m-1,+dd).toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});
 }
+function dataLonga(k){ const [y,m,d] = k.split('-'); const M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; return d+' '+M[+m-1]+' '+y; }
 
 let tt;
 function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),1600); }
@@ -367,7 +368,7 @@ function render(){
     : `${antigos.length} dias anteriores ainda não foram limpos.`;
   $('days').hidden = ds.length < 2;
   $('days').innerHTML = ds.map(d=>`<button class="day ${d===dia?'on':''}" data-d="${d}">${nomeDia(d)}</button>`).join('');
-  $('altDia').textContent = nomeDia(dia);
+  $('altDia').textContent = nomeDia(dia) + ' · ' + dataLonga(dia);
 
   const g = agrupar(dia);
   $('alteracoes').innerHTML = g.length ? g.map(i=>{
@@ -556,6 +557,12 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checarD
     }, 350);
   });
 })();
+
+if (window.visualViewport){
+  const vv = window.visualViewport;
+  const ajustaTopo = ()=>{ document.documentElement.style.setProperty('--vv', Math.max(0, vv.offsetTop) + 'px'); };
+  vv.addEventListener('scroll', ajustaTopo); vv.addEventListener('resize', ajustaTopo);
+}
 
 render();
 
