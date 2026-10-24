@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16302b">
+<title>Controle Estoque 0103</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Estoque 0103">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+  :root{padding-top:env(safe-area-inset-top,0px)}
+  :root{
+    --rail:#16302b; --rail-tx:#cfe0db; --rail-act:#2a5a50;
+    --bg:#eef2f0; --card:#ffffff; --tx:#16201d; --mut:#5d6a66; --line:#d8e0dd; --soft:#f5f8f7;
+    --ent:#1d7f47; --sai:#bf3b2a; --pri:#1f6f5c; --warn:#a86a00; --warn-bg:#fff4dc; --on:#ffffff;
+    --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --rail:#0c1714; --rail-act:#1f4740;
+    --bg:#111614; --card:#1a201e; --tx:#e8eeeb; --mut:#95a19d; --line:#2b3431; --soft:#151b19;
+    --ent:#2fa463; --sai:#e0604d; --pri:#2b8a73; --warn:#f0b54a; --warn-bg:#2a2210; color-scheme:dark}}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--font);font-size:16px}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail)}
+  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--rail);color:var(--rail-tx);
+    padding:10px max(10px,env(safe-area-inset-right,0px)) 8px max(10px,env(safe-area-inset-left,0px))}
+  .brand{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:0 4px 8px}
+  .brand small{font-weight:600;letter-spacing:0;text-transform:none;color:#fff;font-size:16px;font-variant-numeric:tabular-nums}
+  .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .tab{display:flex;align-items:center;justify-content:center;gap:6px;border:0;background:transparent;color:var(--rail-tx);
+    font:inherit;font-size:13px;font-weight:600;padding:9px 4px;border-radius:10px;position:relative;line-height:1.15;text-align:center;min-width:0}
+  .tab svg{width:18px;height:18px;flex:none}
+  .tab[aria-selected="true"]{background:var(--rail-act);color:#fff}
+  .badge{background:var(--sai);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;flex:none}
+  @media (max-width:380px){ .tab svg{display:none} }
+  @media (min-width:700px){ .brand,.tabs{max-width:560px} }
+  main{padding:14px max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+  .view{max-width:560px;display:flex;flex-direction:column;gap:14px}
+  .view[hidden],[hidden]{display:none!important}
+  h1{margin:0;font-size:22px;letter-spacing:-.01em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0}
+  label{font-size:11px;color:var(--mut);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+  input{width:100%;font:inherit;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx);min-width:0}
+  input.code{font-family:var(--mono);text-transform:uppercase}
+  input:focus,button:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+  .grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  @media (min-width:700px){.grid2{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}}
+  .big{border:0;border-radius:12px;padding:16px 10px;font:inherit;font-size:17px;font-weight:700;color:var(--on);width:100%}
+  .pri{background:var(--pri)}
+  .ghost{background:transparent;border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:11px;font:inherit;font-size:15px;width:100%}
+  .danger{background:transparent;border:1px solid var(--sai);color:var(--sai);border-radius:10px;padding:11px;font:inherit;font-size:15px;font-weight:600;width:100%}
+  .danger.sure{background:var(--sai);color:var(--on)}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  ul{list-style:none;margin:0;padding:0}
+  li{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+  li:first-child{border-top:0}
+  .delta{flex:none;min-width:58px;text-align:center;font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;padding:6px 8px;border-radius:10px}
+  .delta.p{color:var(--ent);background:color-mix(in srgb,var(--ent) 13%,transparent)}
+  .delta.n{color:var(--sai);background:color-mix(in srgb,var(--sai) 13%,transparent)}
+  .delta.z{color:var(--mut);background:var(--soft)}
+  .nm{flex:1;min-width:0}
+  .nm b{display:block;overflow-wrap:anywhere;font-weight:600;line-height:1.3}
+  .nm span{font-size:12px;color:var(--mut)}
+  .nm code{font-family:var(--mono);font-size:12px;color:var(--mut)}
+  .hist{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .hc{font-size:12px;color:var(--mut);background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:3px 7px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .hc b{font-weight:800;margin-right:2px}
+  .hc.p b{color:var(--ent)} .hc.n b{color:var(--sai)}
+  .lanc{display:flex;gap:10px;align-items:flex-end;margin-top:14px}
+  .lanc .big{flex:none;width:auto;padding:13px 22px}
+  input.num{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+  input::placeholder{color:var(--mut);opacity:.7;font-weight:500}
+  input.num::placeholder{font-size:17px}
+  code.cc{font-family:var(--mono);font-size:13px;font-weight:600;background:color-mix(in srgb,var(--pri) 14%,transparent);color:var(--pri);padding:2px 7px;border-radius:6px}
+  input[type=search]{-webkit-appearance:none;appearance:none}
+  .clr{position:relative}
+  .clr input{padding-right:40px;padding-left:10px}
+  .xbtn{position:absolute;top:50%;right:4px;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:var(--mut);font-size:22px;line-height:1;display:grid;place-items:center}
+  .xbtn:active{background:var(--line)}
+  .empty{color:var(--mut);font-size:14px;text-align:center;padding:14px 0}
+  .sug{margin-top:8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+  .opt{display:flex;gap:10px;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;color:var(--tx);font:inherit;font-size:15px;padding:11px 12px;text-align:left}
+  .opt:first-child{border-top:0}
+  .opt.on{background:var(--soft);box-shadow:inset 3px 0 0 var(--pri)}
+  .opt code{font-family:var(--mono);font-size:13px;font-weight:600;background:color-mix(in srgb,var(--pri) 14%,transparent);color:var(--pri);padding:2px 7px;border-radius:6px;flex:none}
+  .opt span{min-width:0;overflow-wrap:anywhere;line-height:1.3}
+  .opt mark{background:transparent;color:inherit;font-weight:800}
+  .aj{flex:none;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--soft);color:var(--tx);font-size:18px;font-weight:700;display:grid;place-items:center}
+  .aj[aria-expanded="true"]{background:var(--pri);border-color:var(--pri);color:var(--on)}
+  li.ajuste{display:flex;flex-wrap:wrap;gap:8px;border-top:0;padding:0 0 12px}
+  li.ajuste .big, li.ajuste .danger{flex:1;padding:12px 8px;font-size:15px}
+  .confirm{border:2px solid var(--pri)}
+  .confirm p{margin:0 0 12px}
+  .row{display:flex;gap:10px}
+  .row>*{flex:1;min-width:0}
+  .days{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
+  .day{flex:none;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;font-weight:600}
+  .day.on{background:var(--pri);border-color:var(--pri);color:var(--on)}
+  .aviso{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600}
+  textarea{width:100%;min-height:120px;font:inherit;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx)}
+  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+  .toast.on{opacity:1}
+</style>
+</head>
+<body>
+<nav role="tablist" aria-label="Seções">
+  <div class="brand"><span>Estoque 0103</span><small id="hojeCurto"></small></div>
+  <div class="tabs">
+  <button class="tab" role="tab" aria-selected="true" data-view="vMov">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M3 8l4-4 4 4M17 20V4M21 16l-4 4-4-4"/></svg>
+    <span>Movimentação</span>
+  </button>
+  <button class="tab" role="tab" aria-selected="false" data-view="vAlt">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+    <span>Para lançamento</span>
+    <span class="badge" id="badge" hidden></span>
+  </button>
+  <button class="tab" role="tab" aria-selected="false" data-view="vItens">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
+    Itens
+  </button>
+  </div>
+</nav>
+
+<main>
+  <section class="view" id="vMov">
+    <div><h1>Movimentação</h1></div>
+    <div class="card">
+      <div class="grid2">
+        <div>
+          <label for="cod">Codigo</label>
+          <div class="clr"><input id="cod" class="code" autocomplete="off" autocapitalize="characters"><button type="button" class="xbtn" data-limpa="cod" aria-label="Apagar codigo" hidden>×</button></div>
+        </div>
+        <div>
+          <label for="nome">Nome</label>
+          <div class="clr"><input id="nome" autocomplete="off"><button type="button" class="xbtn" data-limpa="nome" aria-label="Apagar nome" hidden>×</button></div>
+        </div>
+      </div>
+      <div class="sug" id="sugMain" hidden></div>
+      <div class="lanc">
+        <div style="flex:1;min-width:0">
+          <label for="qtd">Quantidade</label>
+          <input id="qtd" placeholder="(1 ou +1) ou -1" type="text" inputmode="text" autocomplete="off" enterkeyhint="done" class="num">
+        </div>
+        <button class="big pri" id="btnLancar">Registrar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="vAlt" hidden>
+    <div><h1>Para lançamento</h1></div>
+    <div class="aviso" id="aviso" hidden></div>
+    <div class="days" id="days" hidden></div>
+    <div class="card">
+      <h2><span id="altDia"></span></h2>
+      <ul id="alteracoes"></ul>
+    </div>
+    <div class="card confirm" id="confirmBox" hidden>
+      <p id="confirmMsg"></p>
+      <div class="row">
+        <button class="ghost" id="confNao">Cancelar</button>
+        <button class="big pri" id="confSim" style="padding:11px">Confirmar</button>
+      </div>
+    </div>
+    <div class="row">
+      <button class="ghost" id="btnCopiar">Copiar lista</button>
+      <button class="big pri" id="btnFechar" style="padding:11px">Limpar lista</button>
+    </div>
+    <div class="card" id="copiaCard" hidden>
+      <textarea id="copiaTxt" readonly></textarea>
+    </div>
+  </section>
+
+  <section class="view" id="vItens" hidden>
+    <h1>Itens <span id="contItens" style="font-size:15px;color:var(--mut);font-weight:500"></span></h1>
+    <div class="card">
+      <h2>Novo item</h2>
+      <div class="grid2">
+        <div>
+          <label for="novoCod">Codigo</label>
+          <input id="novoCod" class="code" autocomplete="off" autocapitalize="characters">
+        </div>
+        <div>
+          <label for="novoNome">Nome</label>
+          <input id="novoNome" autocomplete="off" enterkeyhint="done">
+        </div>
+      </div>
+      <button class="big pri" id="btnNovo" style="margin-top:12px">Adicionar item</button>
+    </div>
+    <input id="buscaItem" placeholder="Procurar" autocomplete="off" type="search">
+    <div class="card">
+      <ul id="listaItens"></ul>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const K = 'armazem_v2';
+let st = {mov: [], cat: {}};
+try { const s = localStorage.getItem(K); if (s) { const p = JSON.parse(s); if (p && Array.isArray(p.mov)) st = Object.assign(st, p); } } catch(e) {}
+const PADRAO = {
+  '0114.003179': 'Disjuntor Bipolar 2P 50A 440V',
+  '0114.003178': 'Disjuntor Bipolar 2P 32A 440V',
+};
+if (!st.semeado){ Object.keys(PADRAO).forEach(c=>{ if (!st.cat[c]) st.cat[c] = PADRAO[c]; }); st.semeado = true; }
+function salvar(){ const cc=document.getElementById('copiaCard'); if (cc) cc.hidden = true; try { localStorage.setItem(K, JSON.stringify(st)); } catch(e) { toast('Não consegui salvar no aparelho'); } }
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dataCurta = t => new Date(t).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+const hora = t => new Date(t).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+const pad = n => String(n).padStart(2,'0');
+const diaDe = t => { const d=new Date(t); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); };
+const hoje = () => diaDe(Date.now());
+function nomeDia(k){
+  const h = hoje(), d = new Date(); d.setDate(d.getDate()-1);
+  if (k===h) return 'Hoje';
+  if (k===diaDe(d)) return 'Ontem';
+  const [y,m,dd] = k.split('-'); return new Date(+y,+m-1,+dd).toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});
+}
+
+let tt;
+function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),1600); }
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===b));
+  document.querySelectorAll('.view').forEach(v=>v.hidden = v.id!==b.dataset.view);
+  window.scrollTo(0,0);
+});
+
+const chave = (cod,nome) => cod ? 'c:'+cod.toUpperCase() : 'n:'+nome.toLowerCase();
+const rotulo = (cod,nome) => nome || cod;
+const norm = v => String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+
+function resolver(cod, nome){
+  cod = (cod||'').trim().toUpperCase(); nome = (nome||'').trim();
+  if (cod && !nome && st.cat[cod]) nome = st.cat[cod];
+  if (nome && !cod){
+    const c = Object.keys(st.cat).find(k=>norm(st.cat[k])===norm(nome));
+    if (c){ cod = c; nome = st.cat[c]; }
+  }
+  return {cod, nome};
+}
+
+function catalogo(){
+  const m = {};
+  Object.keys(st.cat).forEach(c=>{ m['c:'+c] = {cod:c, nome:st.cat[c], uso:0}; });
+  st.mov.forEach(x=>{
+    const r = resolver(x.cod, x.nome), k = r.cod ? 'c:'+r.cod : 'n:'+norm(r.nome);
+    m[k] = m[k] || {cod:r.cod, nome:r.nome, uso:0}; m[k].uso++;
+  });
+  return Object.values(m);
+}
+
+const SINONIMOS = [['bipolar','2p'],['tripolar','3p'],['monopolar','unipolar','1p'],['tetrapolar','4p'],['v','volts','volt'],['a','amperes','amper']];
+function variantes(t){ const g = SINONIMOS.find(g=>g.includes(t)); return g ? g : [t]; }
+function buscar(q){
+  const n = norm(q); if (!n) return [];
+  const toks = n.split(/\s+/);
+  return catalogo().map(it=>{
+    const c = norm(it.cod), nm = norm(it.nome), pal = nm.split(/\s+/);
+    let p = 0;
+    if (c && c===n) p = 100;
+    else if (c && c.startsWith(n)) p = 80;
+    else if (nm.startsWith(n)) p = 70;
+    else if (toks.every(t=>variantes(t).some(v=>pal.some(w=>w.startsWith(v))) || (c && c.startsWith(t)))) p = 50;
+    else if (toks.every(t=>variantes(t).some(v=>nm.includes(v)) || (c && c.includes(t)))) p = 30;
+    return {it, p};
+  }).filter(x=>x.p).sort((a,b)=>b.p-a.p || b.it.uso-a.it.uso).slice(0,6).map(x=>x.it);
+}
+
+function destacar(txt, q){
+  const n = norm(q); if (!n) return esc(txt);
+  const toks = n.split(/\s+/).filter(Boolean);
+  return String(txt).split(/(\s+)/).map(w=>{
+    const t = toks.find(t=>norm(w).startsWith(t));
+    return t ? '<mark>'+esc(w.slice(0,t.length))+'</mark>'+esc(w.slice(t.length)) : esc(w);
+  }).join('');
+}
+
+function autocompletar(codEl, nomeEl, box){
+  let res = [], ativo = 0;
+  function mostrar(el){
+    res = buscar(el.value);
+    if (res.length===1 && norm(res[0].cod)===norm(codEl.value) && norm(res[0].nome)===norm(nomeEl.value)) res = [];
+    if (!res.length){ box.hidden = true; return; }
+    ativo = 0; desenhar(el.value); box.hidden = false;
+  }
+  function desenhar(q){
+    box.innerHTML = res.map((it,i)=>`<button type="button" class="opt ${i===ativo?'on':''}" data-i="${i}">${it.cod?'<code>'+esc(it.cod)+'</code>':''}<span>${it.nome?destacar(it.nome,q):'<em style="color:var(--mut)">sem nome</em>'}</span></button>`).join('');
+  }
+  function escolher(i){
+    const it = res[i]; if (!it) return;
+    codEl.value = it.cod; nomeEl.value = it.nome;
+    box.hidden = true; res = [];
+  }
+  [codEl, nomeEl].forEach(el=>{
+    el.addEventListener('input', ()=>mostrar(el));
+    el.addEventListener('focus', ()=>{ if (el.value) mostrar(el); });
+    el.addEventListener('keydown', e=>{
+      if (box.hidden || !res.length) return;
+      if (e.key==='Tab' || e.key==='Enter'){ e.preventDefault(); escolher(ativo); }
+      else if (e.key==='ArrowDown'){ e.preventDefault(); ativo=(ativo+1)%res.length; desenhar(el.value); }
+      else if (e.key==='ArrowUp'){ e.preventDefault(); ativo=(ativo-1+res.length)%res.length; desenhar(el.value); }
+      else if (e.key==='Escape'){ box.hidden = true; }
+    });
+    el.addEventListener('blur', ()=>setTimeout(()=>{
+      if (document.activeElement!==codEl && document.activeElement!==nomeEl) box.hidden = true;
+    }, 120));
+  });
+  box.addEventListener('pointerdown', e=>{ const b=e.target.closest('.opt'); if(!b) return; e.preventDefault(); escolher(+b.dataset.i); });
+  return ()=>{ box.hidden = true; res = []; };
+}
+const fecharSugMain = autocompletar($('cod'), $('nome'), $('sugMain'));
+
+function atualizaX(){ document.querySelectorAll('[data-limpa]').forEach(b=>{ b.hidden = !$(b.dataset.limpa).value; }); }
+['cod','nome'].forEach(id=>$(id).addEventListener('input', atualizaX));
+document.querySelectorAll('[data-limpa]').forEach(b=>{
+  b.addEventListener('pointerdown', e=>e.preventDefault());
+  b.addEventListener('click', ()=>{ const el=$(b.dataset.limpa); el.value=''; fecharSugMain(); atualizaX(); el.focus({preventScroll:true}); });
+});
+setInterval(atualizaX, 400);
+
+function diasAbertos(){ return [...new Set(st.mov.map(x=>diaDe(x.t)))].sort().reverse(); }
+let diaSel = null;
+function diaAtual(){
+  const ds = diasAbertos();
+  if (diaSel && ds.includes(diaSel)) return diaSel;
+  return ds.includes(hoje()) ? hoje() : (ds[0] || hoje());
+}
+
+function agrupar(dia){
+  const m = {};
+  st.mov.filter(x=>diaDe(x.t)===dia).forEach(x=>{
+    const r = resolver(x.cod,x.nome), k = chave(r.cod,r.nome);
+    m[k] = m[k] || {k, cod:r.cod, nome:r.nome, saldo:0, e:0, s:0, movs:[]};
+    m[k].movs.push(x);
+    if (r.nome && !m[k].nome) m[k].nome = r.nome;
+    if (x.tipo==='e'){ m[k].saldo += x.q; m[k].e += x.q; } else { m[k].saldo -= x.q; m[k].s += x.q; }
+  });
+  return Object.values(m).sort((a,b)=>rotulo(a.cod,a.nome).localeCompare(rotulo(b.cod,b.nome)));
+}
+const faltam = dia => agrupar(dia).filter(i=>i.saldo!==0).length;
+
+let abertoK = null, ajQtd = 0, apagarItem = false;
+const LAPIS = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg>';
+
+function render(){
+  { const d=new Date(), M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; $('hojeCurto').textContent = String(d.getDate()).padStart(2,'0')+' '+M[d.getMonth()]+' '+d.getFullYear(); }
+
+  const ds = diasAbertos();
+  const dia = diaAtual();
+  const antigos = ds.filter(d=>d!==hoje());
+  $('aviso').hidden = !antigos.length;
+  if (antigos.length) $('aviso').textContent = antigos.length===1
+    ? `${nomeDia(antigos[0])} ainda não foi limpo.`
+    : `${antigos.length} dias anteriores ainda não foram limpos.`;
+  $('days').hidden = ds.length < 2;
+  $('days').innerHTML = ds.map(d=>`<button class="day ${d===dia?'on':''}" data-d="${d}">${nomeDia(d)}</button>`).join('');
+  $('altDia').textContent = nomeDia(dia);
+
+  const g = agrupar(dia);
+  $('alteracoes').innerHTML = g.length ? g.map(i=>{
+    const cls = i.saldo>0?'p':i.saldo<0?'n':'z';
+    const txt = i.saldo>0?'+'+i.saldo:i.saldo<0?'−'+Math.abs(i.saldo):'0';
+    const det = [i.cod?'<code>'+esc(i.cod)+'</code>':'', `entrou ${i.e} · saiu ${i.s}`].filter(Boolean).join(' · ');
+    const aberto = abertoK===i.k;
+    return `<li><span class="delta ${cls}">${txt}</span>
+      <div class="nm"><b>${esc(rotulo(i.cod,i.nome))}</b><span>${det}</span>
+        <div class="hist">${i.movs.slice().sort((a,b)=>a.t-b.t).map(x=>`<span class="hc ${x.tipo==='e'?'p':'n'}"><b>${x.tipo==='e'?'+':'−'}${x.q}</b> ${x.aj?'ajuste ':''}${dataCurta(x.t)} ${hora(x.t)}</span>`).join('')}</div></div>
+      <button class="aj" data-aj="${esc(i.k)}" aria-expanded="${aberto}" aria-label="Alterar ou apagar este item">${aberto?'×':LAPIS}</button></li>`
+      + (aberto ? `<li class="ajuste">
+        <input id="ajQtd" type="text" inputmode="text" autocomplete="off" enterkeyhint="done" class="num" aria-label="Quantidade" value="${fmt(ajQtd)}" style="flex:1 1 100%">
+        <button class="danger ${apagarItem?'sure':''}" data-apagar>${apagarItem?'Toque de novo':'Apagar item'}</button>
+        <button class="big pri" data-salvar>Salvar</button></li>` : '');
+  }).join('') : '<div class="empty">Nada mudou hoje.</div>';
+
+  const total = ds.reduce((s,d)=>s+faltam(d),0);
+  $('badge').textContent = total; $('badge').hidden = !total;
+  renderItens();
+}
+
+function lerQtd(v){
+  v = String(v).replace(/\s/g,'').replace('−','-');
+  if (!/^[+-]?\d+$/.test(v)) return null;
+  const n = parseInt(v,10); if (!n) return null;
+  return {tipo: n<0?'s':'e', q: Math.abs(n)};
+}
+const fmt = n => { n = Number(n)||0; return n>0 ? '+'+n : String(n); };
+function lancar(){
+  const {cod, nome} = resolver($('cod').value, $('nome').value);
+  if (!cod && !nome){ toast('Preencha o codigo ou o nome'); return; }
+  const lq = lerQtd($('qtd').value);
+  if (!lq){ toast('Digite a quantidade, tipo +5 ou -2'); return; }
+  const {tipo, q} = lq;
+  if (cod && nome) st.cat[cod] = nome;
+  const t = Date.now();
+  st.mov.push({id:String(t)+Math.floor(Math.random()*1000), cod, nome, q, tipo, t});
+  salvar(); render();
+  $('cod').value=''; $('nome').value=''; $('qtd').value=''; fecharSugMain();
+  toast((tipo==='e'?'+':'−')+q+' '+rotulo(cod,nome));
+}
+$('btnLancar').onclick = lancar;
+$('qtd').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); lancar(); } });
+
+$('days').onclick = e=>{ const b=e.target.closest('.day'); if(!b) return; diaSel=b.dataset.d; abertoK=null; $('copiaCard').hidden=true; render(); };
+$('alteracoes').onclick = e=>{
+  const dia = diaAtual();
+  const aj = e.target.closest('[data-aj]');
+  if (aj){
+    abertoK = abertoK===aj.dataset.aj ? null : aj.dataset.aj; apagarItem = false;
+    const it = agrupar(dia).find(i=>i.k===abertoK); ajQtd = it ? it.saldo : 0;
+    render(); if (abertoK){ const el=$('ajQtd'); el.focus({preventScroll:true}); el.select(); }
+    return;
+  }
+  const item = agrupar(dia).find(i=>i.k===abertoK); if (!item) return;
+  if (e.target.closest('[data-salvar]')){
+    const v = $('ajQtd').value.replace(/\s/g,'').replace('−','-');
+    if (!/^[+-]?\d+$/.test(v)){ toast('Digite um número, tipo +5 ou -2'); return; }
+    const n = parseInt(v,10);
+    const dif = n - item.saldo;
+    if (dif){
+      let t = Date.now();
+      if (dia!==hoje()){ const [y,m,d]=dia.split('-'); t = new Date(+y,+m-1,+d,23,59).getTime(); }
+      st.mov.push({id:String(Date.now())+Math.floor(Math.random()*1000), cod:item.cod, nome:item.nome, q:Math.abs(dif), tipo:dif>0?'e':'s', t, aj:true});
+    }
+    abertoK = null; salvar(); render(); toast('Quantidade alterada');
+    return;
+  }
+  if (e.target.closest('[data-apagar]')){
+    if (!apagarItem){ apagarItem = true; render(); return; }
+    const ids = new Set(item.movs.map(x=>x.id));
+    st.mov = st.mov.filter(x=>!ids.has(x.id));
+    abertoK = null; apagarItem = false; salvar(); render(); toast('Item apagado');
+  }
+};
+$('alteracoes').addEventListener('input', e=>{ if (e.target.id==='ajQtd') ajQtd = e.target.value; });
+$('alteracoes').addEventListener('keydown', e=>{ if (e.target.id==='ajQtd' && e.key==='Enter'){ e.preventDefault(); const b=document.querySelector('[data-salvar]'); b && b.click(); } });
+
+let itemAberto = null, apagarCat = null;
+function renderItens(){
+  const cods = Object.keys(st.cat).sort((a,b)=>st.cat[a].localeCompare(st.cat[b]) || a.localeCompare(b));
+  $('contItens').textContent = cods.length ? '· '+cods.length : '';
+  const q = $('buscaItem').value;
+  const lista = q.trim() ? buscar(q).filter(it=>it.cod && st.cat[it.cod]).map(it=>it.cod) : cods;
+  if (!cods.length){ $('listaItens').innerHTML = '<div class="empty">Nenhum item cadastrado.</div>'; }
+  else if (!lista.length){ $('listaItens').innerHTML = '<div class="empty">Nenhum item encontrado.</div>'; }
+  else $('listaItens').innerHTML = lista.map(c=>{
+    const aberto = itemAberto===c;
+    return `<li><div class="nm"><code class="cc">${esc(c)}</code><b style="margin-top:3px">${esc(st.cat[c])}</b></div>
+      <button class="aj" data-it="${esc(c)}" aria-expanded="${aberto}" aria-label="Editar item">${aberto?'×':LAPIS}</button></li>`
+      + (aberto ? `<li class="ajuste">
+        <div class="grid2" style="flex:1 1 100%">
+          <input id="itCod" class="code" value="${esc(c)}" aria-label="Codigo" autocomplete="off">
+          <input id="itNome" value="${esc(st.cat[c])}" aria-label="Nome" autocomplete="off">
+        </div>
+        <button class="danger ${apagarCat===c?'sure':''}" data-itdel>${apagarCat===c?'Toque de novo':'Excluir'}</button>
+        <button class="big pri" data-itsalvar>Salvar</button></li>` : '');
+  }).join('');
+}
+function novoItem(){
+  const cod = $('novoCod').value.trim().toUpperCase(), nome = $('novoNome').value.trim();
+  if (!cod || !nome){ toast('Preencha o codigo e o nome'); return; }
+  if (st.cat[cod]){ toast('Esse codigo já existe'); return; }
+  st.cat[cod] = nome;
+  $('novoCod').value=''; $('novoNome').value='';
+  salvar(); render(); toast('Item adicionado');
+}
+$('btnNovo').onclick = novoItem;
+$('novoNome').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); novoItem(); } });
+$('novoCod').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); $('novoNome').focus(); } });
+$('buscaItem').addEventListener('input', ()=>{ itemAberto=null; renderItens(); });
+$('listaItens').onclick = e=>{
+  const b = e.target.closest('[data-it]');
+  if (b){ itemAberto = itemAberto===b.dataset.it ? null : b.dataset.it; apagarCat=null; renderItens(); return; }
+  const c = itemAberto; if (!c) return;
+  if (e.target.closest('[data-itsalvar]')){
+    const nc = $('itCod').value.trim().toUpperCase(), nn = $('itNome').value.trim();
+    if (!nc || !nn){ toast('Preencha o codigo e o nome'); return; }
+    if (nc!==c && st.cat[nc]){ toast('Esse codigo já existe'); return; }
+    delete st.cat[c]; st.cat[nc] = nn;
+    st.mov.forEach(x=>{ if (x.cod===c){ x.cod = nc; x.nome = nn; } });
+    itemAberto=null; salvar(); render(); toast('Item atualizado');
+    return;
+  }
+  if (e.target.closest('[data-itdel]')){
+    if (apagarCat!==c){ apagarCat=c; renderItens(); return; }
+    delete st.cat[c]; itemAberto=null; apagarCat=null; salvar(); render(); toast('Item excluído');
+  }
+};
+
+let acao=null;
+function confirmar(msg,fn){ $('confirmMsg').textContent=msg; acao=fn; $('confirmBox').hidden=false; $('confirmBox').scrollIntoView({behavior:'smooth',block:'center'}); }
+$('confNao').onclick=()=>{ acao=null; $('confirmBox').hidden=true; };
+$('confSim').onclick=()=>{ const f=acao; acao=null; $('confirmBox').hidden=true; if(f) f(); };
+
+$('btnFechar').onclick = ()=>{
+  const dia = diaAtual();
+  if (!st.mov.some(x=>diaDe(x.t)===dia)){ toast('Nada para limpar'); return; }
+  const nd = nomeDia(dia).toLowerCase();
+  confirmar(`Limpar a lista de ${nd}? Os registros desse dia serão apagados.`, ()=>{
+    st.mov = st.mov.filter(x=>diaDe(x.t)!==dia);
+    diaSel=null; salvar(); render(); toast('Lista limpa');
+  });
+};
+
+$('btnCopiar').onclick = ()=>{
+  const dia = diaAtual();
+  const g = agrupar(dia).filter(i=>i.saldo!==0);
+  if (!g.length){ toast('Nada para copiar'); return; }
+  const [y,m,d] = dia.split('-');
+  const semana = new Date(+y,+m-1,+d).toLocaleDateString('pt-BR',{weekday:'long'});
+  const linha = '────────────────────';
+  const ent = g.filter(i=>i.saldo>0), sai = g.filter(i=>i.saldo<0);
+  const larg = Math.max(...g.map(i=>String(Math.abs(i.saldo)).length)) + 1;
+  const bloco = i=>{
+    const n = ((i.saldo>0?'+':'-') + Math.abs(i.saldo)).padEnd(larg);
+    const rec = ' '.repeat(larg + 5);
+    if (i.cod && i.nome) return `  ${n}   ${i.cod}\n${rec}${i.nome}`;
+    return `  ${n}   ${i.cod || i.nome}`;
+  };
+  let txt = `PARA LANÇAMENTO\n${semana.charAt(0).toUpperCase()+semana.slice(1)}, ${d}/${m}/${y}\n${linha}`;
+  if (ent.length) txt += `\n\nENTRADAS\n` + ent.map(bloco).join('\n\n');
+  if (sai.length) txt += `\n\nSAÍDAS\n` + sai.map(bloco).join('\n\n');
+  const pl = (n,a,b)=>n+' '+(n===1?a:b);
+  txt += `\n\n${linha}\n${pl(g.length,'item','itens')} · ${pl(ent.length,'entrada','entradas')} · ${pl(sai.length,'saída','saídas')}`;
+  $('copiaCard').hidden = true;
+  const mostrar = ()=>{ $('copiaTxt').value=txt; $('copiaCard').hidden=false; $('copiaTxt').select(); };
+  try { navigator.clipboard.writeText(txt).then(()=>toast('Lista copiada'), mostrar); } catch(e){ mostrar(); }
+};
+
+let ultimoDia = hoje();
+function checarDia(){ if (hoje()!==ultimoDia){ ultimoDia=hoje(); diaSel=null; render(); } }
+setInterval(checarDia, 60000);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checarDia(); });
+
+(function(){
+  let yToque = null;
+  document.addEventListener('touchstart', ()=>{ yToque = window.scrollY; }, {passive:true});
+  document.addEventListener('focusin', e=>{
+    if (!e.target.matches('input, textarea')) return;
+    const y0 = yToque ?? window.scrollY; yToque = null;
+    setTimeout(()=>{
+      const d = window.scrollY - y0;
+      if (d > 20) window.scrollTo({top: y0 + Math.round(d * 0.5), behavior:'smooth'});
+    }, 350);
+  });
+})();
+
+render();
+
+if ('serviceWorker' in navigator && location.protocol==='https:') {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch(e) {}
+</script>
+</body>
+</html>
