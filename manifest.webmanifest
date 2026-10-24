@@ -1,0 +1,10 @@
+{
+  "name": "Controle Estoque 0103",
+  "short_name": "Estoque 0103",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2f0",
+  "theme_color": "#16302b"
+}
