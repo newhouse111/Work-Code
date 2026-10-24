@@ -545,18 +545,21 @@ function checarDia(){ if (hoje()!==ultimoDia){ ultimoDia=hoje(); diaSel=null; re
 setInterval(checarDia, 60000);
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checarDia(); });
 
-(function(){
-  let yToque = null;
-  document.addEventListener('touchstart', ()=>{ yToque = window.scrollY; }, {passive:true});
-  document.addEventListener('focusin', e=>{
-    if (!e.target.matches('input, textarea')) return;
-    const y0 = yToque ?? window.scrollY; yToque = null;
-    setTimeout(()=>{
-      const d = window.scrollY - y0;
-      if (d > 20) window.scrollTo({top: y0 + Math.round(d * 0.5), behavior:'smooth'});
-    }, 350);
-  });
-})();
+document.addEventListener('focusin', e=>{
+  const el = e.target; if (!el.matches('input, textarea')) return;
+  setTimeout(()=>{
+    const vv = window.visualViewport;
+    const fundo = vv ? vv.offsetTop + vv.height : window.innerHeight;
+    const topoLivre = document.querySelector('nav').getBoundingClientRect().bottom + 8;
+    let alvo = el.closest('.card') || el;
+    if (alvo.getBoundingClientRect().height > (fundo - topoLivre) * 0.8) alvo = el.closest('li') || el.parentElement;
+    const escondido = topoLivre - alvo.getBoundingClientRect().top;
+    if (escondido <= 0) return;
+    const espaco = fundo - el.getBoundingClientRect().bottom - 8;
+    const mover = Math.min(escondido, Math.max(0, espaco));
+    if (mover > 0) window.scrollBy({top: -mover, behavior: 'smooth'});
+  }, 400);
+});
 
 if (window.visualViewport){
   const vv = window.visualViewport;
