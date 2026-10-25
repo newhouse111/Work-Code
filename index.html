@@ -12,7 +12,6 @@
 <meta name="apple-mobile-web-app-title" content="Estoque 0103">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
-  :root{padding-top:env(safe-area-inset-top,0px)}
   :root{
     --rail:#16302b; --rail-tx:#cfe0db; --rail-act:#2a5a50;
     --bg:#eef2f0; --card:#ffffff; --tx:#16201d; --mut:#5d6a66; --line:#d8e0dd; --soft:#f5f8f7;
@@ -25,10 +24,9 @@
     --bg:#111614; --card:#1a201e; --tx:#e8eeeb; --mut:#95a19d; --line:#2b3431; --soft:#151b19;
     --ent:#2fa463; --sai:#e0604d; --pri:#2b8a73; --warn:#f0b54a; --warn-bg:#2a2210; color-scheme:dark}}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{height:100%;overscroll-behavior:none}
-  body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--font);font-size:16px}
-  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rail);transform:translateY(var(--vv,0px))}
-  nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;transform:translateY(var(--vv,0px));background:var(--rail);color:var(--rail-tx);
+  html{height:100%;overflow:hidden;overscroll-behavior:none;background:var(--rail)}
+  body{margin:0;position:fixed;top:0;left:0;right:0;height:var(--apph,100%);overflow:hidden;display:flex;flex-direction:column;background:var(--rail);color:var(--tx);font-family:var(--font);font-size:16px;padding-top:env(safe-area-inset-top,0px)}
+  nav{flex:none;position:relative;z-index:5;background:var(--rail);color:var(--rail-tx);
     padding:10px max(10px,env(safe-area-inset-right,0px)) 8px max(10px,env(safe-area-inset-left,0px))}
   .brand{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:0 4px 8px}
   .brand small{font-weight:600;letter-spacing:0;text-transform:none;color:#fff;font-size:16px;font-variant-numeric:tabular-nums}
@@ -40,7 +38,7 @@
   .badge{background:var(--sai);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;flex:none}
   @media (max-width:380px){ .tab svg{display:none} }
   @media (min-width:700px){ .brand,.tabs{max-width:560px} }
-  main{padding:calc(var(--navh,100px) + 14px) max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+  main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:var(--bg);padding:14px max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
   .view{max-width:560px;display:flex;flex-direction:column;gap:14px}
   .view[hidden],[hidden]{display:none!important}
   h1{margin:0;font-size:22px;letter-spacing:-.01em}
@@ -236,7 +234,7 @@ function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); c
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===b));
   document.querySelectorAll('.view').forEach(v=>v.hidden = v.id!==b.dataset.view);
-  window.scrollTo(0,0);
+  document.querySelector('main').scrollTop = 0;
 });
 
 const chave = (cod,nome) => cod ? 'c:'+cod.toUpperCase() : 'n:'+nome.toLowerCase();
@@ -545,35 +543,34 @@ function checarDia(){ if (hoje()!==ultimoDia){ ultimoDia=hoje(); diaSel=null; re
 setInterval(checarDia, 60000);
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checarDia(); });
 
+const areaRolagem = document.querySelector('main');
 document.addEventListener('focusin', e=>{
   const el = e.target; if (!el.matches('input, textarea')) return;
   setTimeout(()=>{
-    const vv = window.visualViewport;
-    const fundo = vv ? vv.offsetTop + vv.height : window.innerHeight;
-    const topoLivre = document.querySelector('nav').getBoundingClientRect().bottom + 8;
+    const caixa = areaRolagem.getBoundingClientRect();
     let alvo = el.closest('.card') || el;
-    if (alvo.getBoundingClientRect().height > (fundo - topoLivre) * 0.8) alvo = el.closest('li') || el.parentElement;
-    const escondido = topoLivre - alvo.getBoundingClientRect().top;
-    if (escondido <= 0) return;
-    const espaco = fundo - el.getBoundingClientRect().bottom - 8;
-    const mover = Math.min(escondido, Math.max(0, espaco));
-    if (mover > 0) window.scrollBy({top: -mover, behavior: 'smooth'});
-  }, 400);
+    if (alvo.getBoundingClientRect().height > caixa.height * 0.8) alvo = el.closest('li') || el.parentElement;
+    const escondido = (caixa.top + 8) - alvo.getBoundingClientRect().top;
+    if (escondido > 0){
+      const espaco = caixa.bottom - el.getBoundingClientRect().bottom - 8;
+      const mover = Math.min(escondido, Math.max(0, espaco));
+      if (mover > 0) areaRolagem.scrollBy({top: -mover, behavior: 'smooth'});
+    }
+    const abaixo = el.getBoundingClientRect().bottom - (caixa.bottom - 8);
+    if (abaixo > 0) areaRolagem.scrollBy({top: abaixo, behavior: 'smooth'});
+  }, 350);
 });
 
 if (window.visualViewport){
   const vv = window.visualViewport;
-  const ajustaTopo = ()=>{
-    const tecladoAberto = window.innerHeight - vv.height > 150;
-    const off = tecladoAberto ? Math.max(0, Math.round(vv.offsetTop)) : 0;
-    document.documentElement.style.setProperty('--vv', off + 'px');
+  const ajusta = ()=>{
+    document.documentElement.style.setProperty('--apph', vv.height + 'px');
+    if (window.scrollY || vv.offsetTop) window.scrollTo(0, 0);
   };
-  vv.addEventListener('scroll', ajustaTopo); vv.addEventListener('resize', ajustaTopo);
-  document.addEventListener('focusout', ()=>setTimeout(ajustaTopo, 300));
+  vv.addEventListener('resize', ajusta); vv.addEventListener('scroll', ajusta);
+  window.addEventListener('scroll', ()=>{ if (window.scrollY) window.scrollTo(0, 0); });
+  ajusta();
 }
-
-const medeNav = ()=>document.documentElement.style.setProperty('--navh', document.querySelector('nav').offsetHeight + 'px');
-medeNav(); window.addEventListener('resize', medeNav);
 
 render();
 
