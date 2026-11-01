@@ -1,0 +1,11 @@
+{
+  "name": "Estoque 0103 Marcelo",
+  "short_name": "Estoque Marcelo",
+  "lang": "pt-BR",
+  "id": "./marcelo.html",
+  "start_url": "./marcelo.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2f0",
+  "theme_color": "#16302b"
+}

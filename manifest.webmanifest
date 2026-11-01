@@ -2,6 +2,7 @@
   "name": "Controle Estoque 0103",
   "short_name": "Estoque 0103",
   "lang": "pt-BR",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
