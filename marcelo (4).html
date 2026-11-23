@@ -1,0 +1,1710 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16302b">
+<title>Estoque 0103 Eduardo</title>
+<link rel="manifest" href="marcelo.webmanifest">
+<link rel="icon" type="image/png" href="icone-192.png">
+<meta property="og:title" content="Estoque 0103">
+<meta property="og:description" content="Toque para abrir o app de solicitações do estoque.">
+<meta property="og:image" content="https://newhouse111.github.io/Work-Code/icone-512.png">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Estoque Eduardo">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+  :root{
+    --rail:#16302b; --rail-tx:#cfe0db; --rail-act:#2a5a50;
+    --bg:#eef2f0; --card:#ffffff; --tx:#16201d; --mut:#5d6a66; --line:#d8e0dd; --soft:#f5f8f7;
+    --ent:#1d7f47; --sai:#bf3b2a; --pri:#1f6f5c; --warn:#a86a00; --warn-bg:#fff4dc; --on:#ffffff;
+    --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --rail:#0c1714; --rail-act:#1f4740;
+    --bg:#111614; --card:#1a201e; --tx:#e8eeeb; --mut:#95a19d; --line:#2b3431; --soft:#151b19;
+    --ent:#2fa463; --sai:#e0604d; --pri:#2b8a73; --warn:#f0b54a; --warn-bg:#2a2210; color-scheme:dark}}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{height:100%;overflow:hidden;overscroll-behavior:none;background:var(--rail)}
+  body{margin:0;position:fixed;top:0;left:0;right:0;height:var(--apph,100%);overflow:hidden;display:flex;flex-direction:column;background:var(--rail);color:var(--tx);font-family:var(--font);font-size:16px;padding-top:env(safe-area-inset-top,0px);text-transform:uppercase}
+  input,textarea,button{text-transform:inherit}
+  nav{flex:none;position:relative;z-index:5;background:var(--rail);color:var(--rail-tx);
+    padding:10px max(10px,env(safe-area-inset-right,0px)) 8px max(10px,env(safe-area-inset-left,0px))}
+  .brand{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:0 4px 8px}
+  .brand small{font-weight:600;letter-spacing:0;color:#fff;font-size:16px;font-variant-numeric:tabular-nums}
+  .tabs{display:flex;gap:6px}
+  .nw{white-space:nowrap}
+  .tab{display:flex;align-items:center;justify-content:center;gap:6px;border:0;background:transparent;color:var(--rail-tx);
+    font:inherit;font-size:13px;font-weight:600;padding:9px 4px;border-radius:10px;position:relative;line-height:1.15;text-align:center;flex:1 1 0;min-width:auto}
+  .tab svg{width:18px;height:18px;flex:none}
+  .tab[aria-selected="true"]{background:var(--rail-act);color:#fff}
+  .badge{background:var(--sai);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;flex:none}
+  .tabs.dois .tab{flex:1 1 auto}
+  .tabs.quatro{gap:4px}
+  .tabs.quatro .tab{flex-direction:column;gap:4px;font-size:10.5px;padding:7px 2px 6px}
+  .tabs.quatro .tab svg{width:19px;height:19px}
+  .tabs.quatro .badge{position:absolute;top:3px;left:calc(50% + 4px)}
+  .tab-sep{flex:none;width:2px;height:36px;align-self:center;border-radius:1px;background:color-mix(in srgb,var(--rail-tx) 40%,transparent)}
+  @media (max-width:359px){ .tabs.dois .tab svg{display:none} }
+  @media (max-width:340px){ .tabs.dois .tab{font-size:12px;gap:4px} .tabs.quatro .tab{font-size:9.5px} }
+  @media (min-width:700px){ .brand,.tabs{max-width:560px} }
+  main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:var(--bg);padding:14px max(10px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+  .view{max-width:560px;display:flex;flex-direction:column;gap:14px}
+  .view[hidden],[hidden]{display:none!important}
+  h1{margin:0;font-size:22px;letter-spacing:-.01em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0}
+  label{font-size:11px;color:var(--mut);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+  label[data-t]::before{content:attr(data-t)}
+  input{width:100%;font:inherit;font-size:17px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx);min-width:0}
+  input.code{font-family:var(--mono);text-transform:uppercase}
+  input:focus,button:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+  input[type=search]{-webkit-appearance:none;appearance:none}
+  input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;display:none}
+  .grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  @media (min-width:700px){.grid2{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}}
+  .big{border:0;border-radius:12px;padding:16px 10px;font:inherit;font-size:17px;font-weight:700;color:var(--on);width:100%}
+  .pri{background:var(--pri)}
+  .ghost{background:transparent;border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:11px;font:inherit;font-size:15px;width:100%}
+  .danger{background:transparent;border:1px solid var(--sai);color:var(--sai);border-radius:10px;padding:11px;font:inherit;font-size:15px;font-weight:600;width:100%}
+  .danger.sure{background:var(--sai);color:var(--on)}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  ul{list-style:none;margin:0;padding:0}
+  li{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+  li:first-child{border-top:0}
+  .delta{flex:none;min-width:58px;text-align:center;font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;padding:6px 8px;border-radius:10px}
+  .delta.p{color:var(--ent);background:color-mix(in srgb,var(--ent) 13%,transparent)}
+  .delta.n{color:var(--sai);background:color-mix(in srgb,var(--sai) 13%,transparent)}
+  .delta.z{color:var(--mut);background:var(--soft)}
+  .nm{flex:1;min-width:0}
+  .nm b{display:block;overflow-wrap:anywhere;font-weight:600;line-height:1.3}
+  .nm span{font-size:12px;color:var(--mut)}
+  .nm code{font-family:var(--mono);font-size:12px;color:var(--mut)}
+  .lanc{display:flex;gap:10px;align-items:flex-end;margin-top:14px}
+  .lanc .big{flex:none;width:auto;padding:13px 22px}
+  input.num{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+  input::placeholder{color:var(--mut);opacity:.7;font-weight:500}
+  input.num::placeholder{font-size:17px}
+  code.cc{font-family:var(--mono);font-size:13px;font-weight:600;background:color-mix(in srgb,var(--pri) 14%,transparent);color:var(--pri);padding:2px 7px;border-radius:6px}
+  code.cc.sem{background:transparent;color:var(--mut);box-shadow:inset 0 0 0 1px var(--line);font-family:inherit;font-size:11px;letter-spacing:.04em}
+  em.sem{color:var(--mut);font-style:normal}
+  .clr{position:relative}
+  .clr input{padding-right:40px;padding-left:10px}
+  .xbtn{position:absolute;top:50%;right:4px;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:var(--mut);font-size:22px;line-height:1;display:grid;place-items:center}
+  .xbtn:active{background:var(--line)}
+  .empty{color:var(--mut);font-size:14px;text-align:center;padding:14px 0}
+  textarea:focus{outline:2px solid var(--pri);outline-offset:2px}
+  textarea.desc{min-height:0;font-size:17px;line-height:1.35;padding:12px 40px 12px 10px;resize:none;overflow:hidden;display:block;text-transform:uppercase}
+  .clr.topo .xbtn{top:7px;transform:none}
+  .campo-desc{margin-top:12px}
+  .hist{display:flex;flex-direction:column;gap:5px;margin-top:7px}
+  .hl{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;font-size:12px;color:var(--mut);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-variant-numeric:tabular-nums}
+  .hl b{font-weight:800}
+  .hl.p b{color:var(--ent)} .hl.n b{color:var(--sai)}
+  .hl .hx{flex-basis:100%;color:var(--tx);font-size:13px;overflow-wrap:anywhere}
+  .por{font-weight:700;font-size:11px;letter-spacing:.03em;color:var(--tx);background:var(--line);border-radius:6px;padding:1px 6px}
+  #listaRec,.lista-rec{display:flex;flex-direction:column;gap:8px}
+  .pilha{display:flex;flex-direction:column;gap:14px}
+  .pilha:empty{display:none}
+  .sep-dias{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--mut);margin:4px 2px -6px}
+  .sep-dias::after{content:'';flex:1;height:1px;background:var(--line)}
+  .conc{margin-left:auto;position:relative;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:7px;padding:3px 8px;font:inherit;font-size:11px;font-weight:800;letter-spacing:.03em;line-height:1.2}
+  .conc::after{content:'';position:absolute;inset:-8px -6px}
+  .conc.on{background:var(--ent);border-color:var(--ent);color:#fff}
+  .hl.ok{background:color-mix(in srgb,var(--ent) 9%,var(--soft))}
+  .tag-ok{margin-left:auto;font-size:11px;font-weight:800;color:var(--ent);letter-spacing:.03em;white-space:nowrap}
+  .acao-dia{margin-top:12px}
+  .row.acao-dia>*{flex:1 1 auto;width:auto;padding:11px 8px;font-size:14px;font-weight:700;border-radius:10px}
+  .hl.g{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:8px}
+  .hl-tx{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;min-width:0}
+  .hl.g .conc{margin-left:0}
+  .reg-acoes{display:flex;align-items:center;gap:2px;flex:none;margin-left:auto}
+  .reg-acoes .conc{margin-left:0}
+  .reg-x{width:32px;height:30px;border:0;border-radius:8px;background:transparent;color:var(--mut);font-size:22px;line-height:1;display:grid;place-items:center;margin-right:-6px;position:relative}
+  .reg-x::after{content:'';position:absolute;inset:-6px -2px}
+  .reg-x:active{background:var(--line)}
+  h2.dia-top{align-items:center;margin-bottom:8px}
+  .form-top{margin:0 0 8px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .form-top h2{margin:0}
+  .form-top .mini{margin:-6px 0}
+  .card.editando{border-color:var(--pri);box-shadow:0 0 0 1px var(--pri)}
+  .mini{flex:none;position:relative;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 11px;font:inherit;font-size:13px;font-weight:700;line-height:1}
+  .mini svg{width:14px;height:14px}
+  .mini::after{content:'';position:absolute;inset:-8px -6px}
+  .mini:active{background:var(--soft)}
+  .rg-x{flex:none;width:32px;height:32px;margin:-4px -6px -4px 0;border:0;border-radius:8px;background:transparent;color:var(--tx);opacity:.7;font-size:24px;line-height:1;display:grid;place-items:center}
+  .rg-x:active{background:color-mix(in srgb,var(--ent) 25%,transparent)}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:20px max(20px,env(safe-area-inset-right,0px)) 20px max(20px,env(safe-area-inset-left,0px))}
+  .modal-box{width:100%;max-width:360px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .modal-box h3{margin:0 0 6px;font-size:18px}
+  .modal-box p{margin:0 0 16px;color:var(--mut);font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+  .modal-box .row .big{padding:12px 10px}
+  .perigo{background:var(--sai)}
+  .rg{display:grid;grid-template-columns:22px minmax(0,1fr) 32px;column-gap:10px;align-items:start;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--ent) 13%,transparent);border:1px solid color-mix(in srgb,var(--ent) 35%,transparent)}
+  .rg-ok{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ent);color:#fff;display:grid;place-items:center;margin-top:1px}
+  .rg-ok svg{width:14px;height:14px}
+  .rg-ok{grid-column:1;grid-row:1}
+  .rg-x{grid-column:3;grid-row:1}
+  .rg-top{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px;font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+  .rg.so-ver .rg-top{grid-column:2/4}
+  .rg-tx{grid-column:2/4;grid-row:2;margin-top:4px}
+  .rg-tx,.reg-tx{font-size:15px;font-weight:600;line-height:1.35;overflow-wrap:anywhere}
+  .rg-tx b,.reg-tx b{font-weight:800}
+  li.reg{display:block;padding:10px 0}
+  .reg-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px;font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+  .reg-meta{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;min-width:0}
+  .reg-tx{margin-top:3px}
+  li.reg.ok .reg-tx{color:var(--mut)}
+  .rg .mini{color:var(--ent);border-color:color-mix(in srgb,var(--ent) 40%,transparent);background:color-mix(in srgb,var(--card) 75%,transparent);margin:3px 0 1px}
+  .rg.em-edicao{box-shadow:0 0 0 2px var(--pri)}
+  .rg.novo{animation:rgIn 1.4s ease-out}
+  @keyframes rgIn{0%{background:color-mix(in srgb,var(--ent) 45%,transparent)}100%{background:color-mix(in srgb,var(--ent) 13%,transparent)}}
+  @media (prefers-reduced-motion: reduce){.rg.novo{animation:none}}
+  .sug{margin-top:8px;border:1px solid var(--line);border-radius:12px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;max-height:calc(var(--apph,100vh)*.42);background:var(--card)}
+  .opt{display:flex;gap:10px;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;color:var(--tx);font:inherit;font-size:15px;padding:11px 12px;text-align:left}
+  .opt:first-child{border-top:0}
+  .opt.on{background:var(--soft);box-shadow:inset 3px 0 0 var(--pri)}
+  .opt code{font-family:var(--mono);font-size:13px;font-weight:600;background:color-mix(in srgb,var(--pri) 14%,transparent);color:var(--pri);padding:2px 7px;border-radius:6px;flex:none}
+  .opt span{min-width:0;overflow-wrap:anywhere;line-height:1.3}
+  .opt mark{background:transparent;color:inherit;font-weight:800}
+  .aj{flex:none;width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--soft);color:var(--tx);font-size:18px;font-weight:700;display:grid;place-items:center}
+  .aj[aria-expanded="true"]{background:var(--pri);border-color:var(--pri);color:var(--on)}
+  li.ajuste{display:flex;flex-wrap:wrap;gap:8px;border-top:0;padding:0 0 12px}
+  li.ajuste .big, li.ajuste .danger{flex:1;padding:12px 8px;font-size:15px}
+  .row{display:flex;gap:10px}
+  .row>*{flex:1;min-width:0}
+  textarea{width:100%;min-height:120px;font:inherit;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--tx)}
+  .quem{border:0;background:color-mix(in srgb,#fff 15%,transparent);color:#fff;font:inherit;font-size:11px;font-weight:700;letter-spacing:.04em;border-radius:6px;padding:3px 7px;margin-left:8px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:2px}
+  .faixa{margin:8px 4px 0;background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;text-align:center}
+  .entrada{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;padding:calc(28px + env(safe-area-inset-top,0px)) 16px 32px}
+  .ent-box{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .ent-marca{font-weight:800;font-size:20px;letter-spacing:.05em;display:flex;align-items:baseline;gap:8px}
+  .ent-marca span{font-size:14px;color:var(--mut)}
+  .ent-campos{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+  .ent-erro{color:var(--sai);font-size:14px;font-weight:600;min-height:18px;margin:12px 0}
+  .ent-erro:empty{margin:6px 0}
+  .ent-msg{margin:0 0 12px;font-size:15px;line-height:1.4}
+  #entEmail,#entSenha{text-transform:none}
+  .aviso-tx{margin:4px 0 10px;font-size:14px;line-height:1.45}
+  .topico{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-bottom:10px}
+  .painel-box{max-width:420px}
+  .painel-box h2{margin-top:4px}
+  .painel-acoes{margin-top:16px}
+  .painel-acoes .big{padding:12px 10px}
+  .topico code{flex:1;min-width:0;font-family:var(--mono);font-size:15px;font-weight:700;overflow-wrap:anywhere}
+  .passos{display:flex;flex-direction:column;gap:12px;margin:8px 0 14px;padding:0;list-style:none}
+  .passos li{display:flex;align-items:flex-start;gap:10px;padding:0;border:0;font-size:15px;line-height:1.4}
+  .passos li>span:last-child{min-width:0;overflow-wrap:anywhere}
+  .pn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--pri);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center}
+  .ic{width:18px;height:18px;vertical-align:-3px;color:var(--pri)}
+  .ent-nota{margin:0 0 12px;font-size:13px;line-height:1.45;color:var(--mut)}
+  .seta{position:fixed;z-index:61;width:46px;height:46px;color:var(--pri);pointer-events:none;animation:seta 1.1s ease-in-out infinite}
+  .seta svg{width:100%;height:100%;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+  .seta.baixo-meio{bottom:calc(env(safe-area-inset-bottom,0px) + 6px);left:calc(50% - 23px)}
+  .seta.baixo-dir{bottom:calc(env(safe-area-inset-bottom,0px) + 6px);right:12px}
+  .seta.cima-dir{top:calc(env(safe-area-inset-top,0px) + 4px);right:4px;animation-name:seta-cima}
+  .seta.cima-dir svg{transform:rotate(180deg)}
+  @keyframes seta{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  @keyframes seta-cima{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @media (prefers-reduced-motion: reduce){.seta{animation:none}}
+  .entrada:has(#entInstalar:not([hidden])),.entrada:has(#entInstAnd:not([hidden])){padding-bottom:84px}
+  .entrada:has(.seta.cima-dir:not([hidden])) .ent-box{padding-top:20px}
+  .ent-nota b{color:var(--tx)}
+  .inst{border-color:color-mix(in srgb,var(--pri) 45%,var(--line));background:color-mix(in srgb,var(--pri) 8%,var(--card))}
+  .inst-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .inst-top h2{margin:0;color:var(--tx)}
+  .inst-x{flex:none;width:32px;height:32px;margin:-6px -6px -6px 0;border:0;border-radius:8px;background:transparent;color:var(--mut);font-size:22px;line-height:1;display:grid;place-items:center}
+  .inst-x:active{background:var(--line)}
+  .inst-tx{margin:6px 0 0;font-size:14px;line-height:1.45}
+  #instBtn{margin-top:10px;padding:13px 10px}
+  .reset{display:flex;flex-direction:column;gap:4px;border:1px solid var(--sai);background:color-mix(in srgb,var(--sai) 12%,var(--card));border-radius:14px;padding:12px}
+  .reset b{color:var(--sai);font-size:15px;font-weight:800;letter-spacing:.06em}
+  .reset span{font-size:14px;line-height:1.45}
+  .aviso-alt{display:flex;align-items:center;gap:10px;margin-top:8px;padding:8px 8px 8px 11px;border-radius:10px;background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));font-size:13px;line-height:1.4}
+  .aviso-alt>span{flex:1;min-width:0;overflow-wrap:anywhere}
+  .aviso-alt b{color:var(--warn)}
+  .aviso-alt.exc{background:color-mix(in srgb,var(--sai) 10%,var(--card));border-color:color-mix(in srgb,var(--sai) 45%,var(--line))}
+  .aviso-alt.exc b{color:var(--sai)}
+  .reg.exc .reg-tx{text-decoration:line-through;color:var(--mut)}
+  .okbtn{flex:none;border:0;border-radius:9px;padding:8px 16px;font:inherit;font-weight:800;font-size:13px;background:var(--pri);color:#fff}
+  .okbtn:active{filter:brightness(.92)}
+  .membro{display:flex;align-items:center;gap:8px}
+  .membro .nm{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .membro .nm b{font-size:15px;overflow-wrap:anywhere}
+  .membro .mm{font-size:12px;color:var(--mut);line-height:1.35}
+  .tabs.cinco .tab{font-size:9.5px;padding:7px 1px 6px}
+  @media (max-width:359px){ .tabs.cinco .tab{font-size:8.5px} .tabs.cinco{gap:2px} }
+  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+  .toast.on{opacity:1}
+</style>
+</head>
+<body>
+<nav role="tablist" aria-label="Seções">
+  <div class="brand"><span>Estoque 0103<button type="button" id="quem" class="quem" hidden></button></span><small id="hojeCurto"></small></div>
+  <div class="tabs dois" id="tabs">
+  <button class="tab" role="tab" aria-selected="true" data-view="vMov">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M3 8l4-4 4 4M17 20V4M21 16l-4 4-4-4"/></svg>
+    <span>Solicitações</span>
+  </button>
+  <button class="tab" role="tab" aria-selected="false" data-view="vAlt">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+    <span id="tabAltTxt">Seus lançamentos</span>
+    <span class="badge" id="badge" hidden></span>
+  </button>
+  <button class="tab" role="tab" aria-selected="false" data-view="vItens" id="tabItens" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
+    <span>Itens</span>
+  </button>
+  <button class="tab" role="tab" aria-selected="false" data-view="vMembros" id="tabMembros" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 11l2 2 4-4"/></svg>
+    <span>Membros</span>
+  </button>
+  <span class="tab-sep" id="tabSep" aria-hidden="true" hidden></span>
+  <button class="tab" role="tab" aria-selected="false" data-view="vHist" id="tabHist" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <span>Lançamento geral</span>
+    <span class="badge" id="badgeHist" hidden></span>
+  </button>
+  </div>
+  <div class="faixa" id="offline" hidden>Sem internet · o que você lançar vai ser enviado quando ela voltar</div>
+</nav>
+
+<main>
+  <section class="view" id="vMov">
+    <div><h1>Solicitações</h1></div>
+    <div class="card inst" id="cardInstalar" hidden>
+      <div class="inst-top"><h2>Instale o app neste celular</h2></div>
+      <p class="inst-tx" id="instTx"></p>
+      <button type="button" class="big pri" id="instBtn" hidden>Instalar</button>
+    </div>
+    <div class="card" id="formCard">
+      <div class="form-top"><h2 id="formTit">Nova solicitação</h2><button type="button" class="mini" id="btnCancelEd" hidden>Cancelar</button></div>
+      <div class="grid2">
+        <div>
+          <label for="cod" data-t="Codigo"></label>
+          <div class="clr"><input id="cod" type="search" enterkeyhint="done" class="code" autocomplete="off" autocapitalize="characters"><button type="button" class="xbtn" data-limpa="cod" aria-label="Apagar codigo" hidden>×</button></div>
+        </div>
+        <div>
+          <label for="fItem" data-t="Nome"></label>
+          <div class="clr"><input id="fItem" type="search" enterkeyhint="done" name="f_item_x" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"><button type="button" class="xbtn" data-limpa="fItem" aria-label="Apagar" hidden>×</button></div>
+        </div>
+      </div>
+      <div class="sug" id="sugMain" hidden></div>
+      <div class="campo-desc">
+        <label for="fDesc" data-t="Descrição"></label>
+        <div class="clr topo"><textarea id="fDesc" class="desc" rows="2" autocomplete="off" autocapitalize="characters"></textarea><button type="button" class="xbtn" data-limpa="fDesc" aria-label="Apagar descrição" hidden>×</button></div>
+      </div>
+      <div class="lanc">
+        <div style="flex:1;min-width:0">
+          <label for="qtd" data-t="Quantidade"></label>
+          <input id="qtd" type="search" inputmode="numeric" pattern="[0-9]*" autocomplete="off" enterkeyhint="done" class="num">
+        </div>
+        <button class="big pri" id="btnLancar">Lançar</button>
+      </div>
+    </div>
+    <div class="card" id="recCard" hidden>
+      <h2><span>Solicitações de hoje</span> <span id="contRec"></span></h2>
+      <div id="listaRec"></div>
+    </div>
+    <div class="pilha" id="recAntigos"></div>
+  </section>
+
+  <section class="view" id="vAlt" hidden>
+    <div><h1 id="tituloAlt">Seus lançamentos</h1></div>
+    <div class="card">
+      <h2><span id="altDia"></span></h2>
+      <ul id="alteracoes"></ul>
+    </div>
+    <div class="pilha" id="altAntigos"></div>
+  </section>
+
+  <section class="view" id="vHist" hidden>
+    <div><h1>Lançamento geral</h1></div>
+    <div class="reset" id="avisoReset" role="status" hidden><b>Dia do reset</b><span>Hoje à meia-noite o Lançamento geral, o Meus lançamentos e os lançamentos da equipe ficam vazios. Copie o que precisar antes.</span></div>
+    <div class="card" id="copiaCard" hidden>
+      <textarea id="copiaTxt" readonly></textarea>
+    </div>
+    <div class="pilha" id="histDias"></div>
+  </section>
+
+  <section class="view" id="vItens" hidden>
+    <h1>Itens <span id="contItens" style="font-size:15px;color:var(--mut);font-weight:500"></span></h1>
+    <div class="card">
+      <h2>Novo item</h2>
+      <div class="grid2">
+        <div>
+          <label for="novoCod" data-t="Codigo"></label>
+          <input id="novoCod" type="search" enterkeyhint="done" class="code" autocomplete="off" autocapitalize="characters">
+        </div>
+        <div>
+          <label for="fNovoItem" data-t="Nome"></label>
+          <input id="fNovoItem" type="search" name="f_novo_x" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="done">
+        </div>
+      </div>
+      <button class="big pri" id="btnNovo" style="margin-top:12px">Adicionar item</button>
+    </div>
+    <input id="buscaItem" placeholder="Procurar" autocomplete="off" autocapitalize="characters" type="search" enterkeyhint="done">
+    <div class="card">
+      <ul id="listaItens"></ul>
+    </div>
+  </section>
+
+  <section class="view" id="vMembros" hidden>
+    <h1>Membros <span id="contMembros" style="font-size:15px;color:var(--mut);font-weight:500"></span></h1>
+    <div class="card"><ul id="listaMembros"></ul></div>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTit">
+    <h3 id="modalTit"></h3>
+    <p id="modalMsg"></p>
+    <div class="row">
+      <button class="ghost" id="modalNao">Cancelar</button>
+      <button class="big perigo" id="modalSim">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<div class="entrada" id="entrada" hidden>
+  <div class="ent-box">
+    <div class="ent-marca">Estoque 0103<span id="entSub"></span></div>
+    <div class="card" id="entCarregando"><div class="empty">Carregando...</div></div>
+    <div class="card" id="entFalha" hidden>
+      <p class="ent-msg">Sem internet para abrir o app. Confira a conexão e tente de novo.</p>
+      <button type="button" class="big pri" id="entTentar">Tentar de novo</button>
+    </div>
+    <div class="card" id="entInstalar" hidden>
+      <h2>Instale o app</h2>
+      <ol class="passos">
+        <li><span class="pn">1</span><span id="instPasso1"></span></li>
+        <li><span class="pn">2</span><span>Role para baixo e toque em <b>Adicionar à Tela de Início</b> <span class="nw"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg>.</span></span></li>
+        <li><span class="pn">3</span><span>Toque em <b>Adicionar</b>. Depois abra o app pelo ícone novo na tela.</span></li>
+      </ol>
+      <p class="ent-nota" id="entInstCod" hidden>Se o app pedir o código da equipe, digite <b id="entInstCodTx"></b>.</p>
+      <p class="ent-nota">Se não aparecer a opção, abra este link no Safari.</p>
+    </div>
+    <div class="card" id="entInstAnd" hidden>
+      <h2>Instale o app</h2>
+      <div id="instAndBotao" hidden>
+        <button type="button" class="big pri" id="instAndBtn">Instalar</button>
+        <p class="ent-nota" style="margin:12px 0 0">Depois abra o app pelo ícone novo na tela.</p>
+      </div>
+      <ol class="passos" id="instAndPassos">
+        <li><span class="pn">1</span><span id="instAndP1"></span></li>
+        <li><span class="pn">2</span><span id="instAndP2"></span></li>
+        <li><span class="pn">3</span><span>Abra o app pelo ícone novo na tela.</span></li>
+      </ol>
+      <p class="ent-nota" id="instAndPronto" hidden><b>App instalado.</b> Agora abra pelo ícone novo na tela.</p>
+      <p class="ent-nota">Se o app já está instalado, abra pelo ícone na tela.</p>
+      <p class="ent-nota">Se não aparecer a opção, abra este link no Chrome.</p>
+    </div>
+    <div class="seta" id="setaInst" hidden aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17"/><path d="M5 13l7 7 7-7"/></svg></div>
+    <form class="card" id="entForm" hidden>
+      <h2>Entrar</h2>
+      <div class="ent-campos">
+        <div id="entEmailBox" hidden><label for="entEmail" data-t="E-mail"></label><input id="entEmail" type="email" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false"></div>
+        <div id="entSenhaBox" hidden><label for="entSenha" data-t="Senha"></label><input id="entSenha" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"></div>
+        <div id="entCodigoBox"><label for="entCodigo" data-t="Código da equipe"></label><input id="entCodigo" type="text" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"></div>
+        <div id="entNomeBox"><label for="entNome" data-t="Seu nome igual ao Protheus"></label><input id="entNome" type="text" placeholder="ex.: daniel.junior" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"></div>
+      </div>
+      <p class="ent-erro" id="entErro" role="alert"></p>
+      <button type="submit" class="big pri" id="entBtn">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="painel" hidden>
+  <div class="modal-box painel-box" role="dialog" aria-modal="true" aria-labelledby="painelTit">
+    <h3 id="painelTit"></h3>
+    <div id="avisoBox" hidden>
+      <h2>Avisos no celular</h2>
+      <p class="aviso-tx">Para receber um aviso quando alguém fizer uma solicitação, instale o app grátis ntfy (App Store), toque em + e assine este tópico, do jeito que está escrito:</p>
+      <div class="topico"><code id="avisoTopico"></code><button type="button" class="mini" id="avisoCopiar">Copiar</button></div>
+      <button type="button" class="ghost" id="avisoTestar">Mandar um aviso de teste</button>
+    </div>
+    <div class="row painel-acoes">
+      <button type="button" class="ghost" id="painelFechar">Fechar</button>
+      <button type="button" class="big perigo" id="painelSair">Sair</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Modo do app. GESTOR = versão do Marcelo. ONLINE = dados no Firebase (versão do GitHub); sem ONLINE fica tudo no celular */
+const GESTOR = true;
+const MEU_NOME = 'Eduardo';
+const ONLINE = true;
+const FIREBASE = {"apiKey": "AIzaSyATgpzCOxA5wD8Vu4HL69hNZf3hKsrlXeE", "authDomain": "app-estoque-0103.firebaseapp.com", "projectId": "app-estoque-0103", "storageBucket": "app-estoque-0103.firebasestorage.app", "messagingSenderId": "373175424857", "appId": "1:373175424857:web:9cac995b7229033e0bde48"};
+const FB_VER = '12.19.0';
+
+const K = 'armazem_v2';
+let st = {mov: [], cat: {}, semCod: []};
+if (!ONLINE) try { const s = localStorage.getItem(K); if (s) { const p = JSON.parse(s); if (p && Array.isArray(p.mov)) st = Object.assign(st, p); } } catch(e) {}
+/* Lista de itens do Mapa do Armazém 0103 (2026). Com código: {código: nome}. Sem código: só o nome.
+   CAT_VERSAO muda quando chega uma lista nova: o app do Marcelo troca a lista no Firebase uma vez. */
+const CAT_VERSAO = 3;
+const PADRAO = {
+  "5002.002625": "CAIXA PLÁSTICA COM TAMPA 15 LITROS (150X345X440)",
+  "35.123.905,00": "PATCH CORD 3M",
+  "5428.002679": "PATCH CORD 2M",
+  "5222.002538": "PATCH CORD 1,5M",
+  "5428.002678": "PATCH CORD 1M",
+  "5428.002682": "PATCH CORD 0,5M",
+  "5222.002546": "PATCH CORD 0,15M",
+  "0304.000006": "CONECTOR XT60E-F (AMARELO)",
+  "SB50": "CONECTOR DE POTÊNCIA SB50",
+  "0114.000002": "CAPA PARA DB26",
+  "0114.003073": "WAGO 1 VIA",
+  "0114.002717": "WAGO 2 VIAS",
+  "0114.002040": "WAGO 3 VIAS",
+  "0114.001054": "WAGO 5 VIAS",
+  "0114.001543": "POSTE FINAL",
+  "0600.000051": "BASE 3 VIAS PARA WAGO",
+  "5018.002600": "BARRAMENTO NEUTRO 8 FUROS",
+  "5018.002601": "BARRAMENTO NEUTRO 12 FUROS",
+  "0114.003012": "BARRAMENTO TERRA 12 FUROS",
+  "0304.000011": "MC4 SOLAR TIPO Y",
+  "0304.000012": "MC4 SOLAR 4 VIAS",
+  "0304.000013": "MC4 SOLAR 3 VIAS",
+  "CON-002": "MC4 SOLAR (MACHO E FÊMEA/PAR)",
+  "0114.002439": "CAIXA DE SOBREPOR",
+  "ETH-SP-G2": "PROTETOR DPS UBIQUITI",
+  "0117.000007": "CLAMPER TRIPOLAR",
+  "5014.002795": "LED TUBULAR 30CM",
+  "VCL275V45KA": "DPS MONOPOLAR CLAMPER",
+  "0114.000626": "KIT PORCA GAIOLA METÁLICA",
+  "0114.002872": "KIT PORCA GAIOLA + PARAFUSO PLÁSTICO RSL2.2R20-S2 (20 PÇ)",
+  "0114.003202": "MINI VENTILADOR NEWORK 80X80X25 48VDC",
+  "0114.002777": "MINI VENTILADOR RT-120 120X120X38 48VDC",
+  "0114.002664": "MINI VENTILADOR RT-120 120X120X25 12VDC",
+  "0109.000009": "DISJUNTOR AC BIPOLAR / 10A",
+  "0109.000013": "DISJUNTOR AC BIPOLAR / 16A",
+  "0109.000010": "DISJUNTOR AC BIPOLAR / 20A",
+  "0109.000011": "DISJUNTOR AC BIPOLAR / 25A",
+  "0114.003182": "DISJUNTOR DC BIPOLAR / 6A / 440V",
+  "0114.003180": "DISJUNTOR DC BIPOLAR / 10A / 440V",
+  "0114.003341": "DISJUNTOR DC BIPOLAR / 16A / 440V",
+  "0114.003177": "DISJUNTOR DC BIPOLAR / 25A / 440V",
+  "0114.003178": "DISJUNTOR DC BIPOLAR / 32A / 440V",
+  "0114.003179": "DISJUNTOR DC BIPOLAR / 50A / 440V",
+  "0114.003222": "DISJUNTOR DC BIPOLAR / 63A / 440V",
+  "0114.003342": "KIT PORCA E PARAFUSO DUPLO TOOLLESS",
+  "0114.000845": "T18R-ABRACADEIRAS TIPO INSULOK C 100MM X L 2.50MM X D 22MM",
+  "0114.001133": "T30R-ABRACADEIRAS TIPO INSULOK C 150MM X L 360MM X D 35MM",
+  "0114.001135": "T50M-ABRACADEIRAS TIPO INSULOK C 245MM X L 4.60MM X D 73MM",
+  "5014.000981": "FITA ROTULADOR 12MM X 8M BRANCA M231 BROTHER",
+  "0114.003181": "DISJUNTOR DC UNIPOLAR / 6A / 125V",
+  "0114.003145": "DISJUNTOR DC UNIPOLAR / 10A / 125V",
+  "0114.003146": "DISJUNTOR DC UNIPOLAR / 16A / 125V",
+  "0114.003147": "DISJUNTOR DC UNIPOLAR / 32A / 125V",
+  "0114.003234": "DISJUNTOR DC UNIPOLAR / 40A / 125V",
+  "0114.003148": "DISJUNTOR DC UNIPOLAR / 50A / 125V",
+  "0114.003152": "DISJUNTOR DC UNIPOLAR / 63A / 125V",
+  "0110.000011": "CABO DE FORCA NOVO PADRAO - 20A 3,00 METROS 3X2,50MM",
+  "0110.000012": "CABO DE FORCA NOVO PADRAO – 10A 1,8M 3X1,50MM",
+  "0114.003340": "ORGANIZADOR DE CABOS 25MM HWPP25 HELLERMANN (PRETO)",
+  "5018.002588": "ORGANIZADOR DE CABOS 16MM HWPP16 HELLERMANN",
+  "5018.002571": "ORGANIZADOR DE CABOS 1/4",
+  "0114.001826": "CALHA DE TOMADA 19\" 6 TOMADAS 20A (PRETA)",
+  "CBFL-014": "FLEX PRETO 2,5MM",
+  "CBFL-015": "FLEX VERMELHO 2,5MM",
+  "CBFL-027": "FLEX VERDE 2,5MM",
+  "CBFL-037": "FLEX AZUL 2,5MM",
+  "CBFL-081": "FLEX BRANCO 2,5MM",
+  "CBFL-021": "FLEX PRETO 1,5MM",
+  "CBFL-020": "FLEX VERMELHO 1,5MM",
+  "CBFL-090": "FLEX VERDE 1,5MM",
+  "CBFL-088": "FLEX PRETO 0,5MM",
+  "CBFL-087": "FLEX VERMELHO 0,5MM",
+  "CBFL-068": "FLEX VERDE 0,5MM",
+  "CBFL-069": "FLEX BRANCO 0,5MM",
+  "CBFL-009": "FLEX PRETO 4MM",
+  "CBFL-008": "FLEX VERMELHO 4MM",
+  "CBFL-028": "FLEX VERDE 4MM",
+  "CBFL-002": "FLEX AZUL 4MM",
+  "CBFL-024": "FLEX PRETO 6MM",
+  "CBFL-023": "FLEX VERMELHO 6MM",
+  "CBFL-035": "FLEX VERDE 6MM",
+  "CBFL-036": "FLEX AZUL CLARO 6MM",
+  "0114.000975": "TRILHO LISO PARA DISJUNTOR DIN - 35MM X 7.5MM INFORMAR EM MM",
+  "0114.002985": "BARRAMENTO PENTE BIFASICO DE 54 POLOS 63A - 1METRO",
+  "0114.002960": "BARRAMENTO PENTE MONOFASICO DE 54 POLOS 63A - 1METRO",
+  "5003.002670": "BASTÃO DE COLA QUENTE PRETO GROSSO 11,5MM X 30CM",
+  "0114.002766": "GRADE PROTEÇÃO COOLER 120X120MM (PRATEADA)",
+  "0114.003032": "FILTRO DE LINHA ICLAMPER ENERGIA 5 TOMADAS (TRANSPARENTE)",
+  "DPS-S800-013202": "PROTETOR CONTRA SURTO ETHERNET CAT5E CLAMPER SERIE 800",
+  "0114.002843": "OLHAL AZUL 2,5MM (FURO M6)",
+  "0114.000778": "OLHAL AZUL 2,5MM (FURO M5)",
+  "0114.002580": "OLHAL AZUL 2,5MM (FURO M3)",
+  "0114.001785": "FORQUILHA AZUL 2,5MM (FURO M4)",
+  "0114.003215": "FASTON AZUL 2,5MM (MACHO - PRÉ ISOLADO)",
+  "0114.002795": "TUBULAR / ILHÓS 2,5MM",
+  "0114.002785": "OLHAL AZUL 16MM (FURO M10)",
+  "0114.001022": "ESPADA AZUL 2,5MM (MACHO - ISOLADO)",
+  "0114.002796": "TUBULAR / ILHÓS 2,5MM (DUPLO)",
+  "0114.000847": "FASTON AZUL 2,5MM (FÊMEA - ISOLADO)",
+  "0114.003170": "TUBULAR / ILHÓS 16MM (DUPLO)",
+  "0114.000848": "OLHAL AMARELO 6MM (FURO M5)",
+  "0114.001021": "OLHAL AMARELO 6MM (FURO M4)",
+  "0114.002786": "OLHAL AMARELO 25MM (FURO M10)",
+  "0114.002888": "OLHAL AMARELO 6MM (FURO M8)",
+  "0114.003103": "FORQUILHA AMARELO (FURO M6)",
+  "0114.003216": "FASTON AMARELO 6MM (FÊMEA - PRÉ ISOLADO)",
+  "0114.001436": "FASTON AMARELO 6MM (FÊMEA - ISOLADO)",
+  "0114.001023": "PINO CHATO 6MM (ISOLADO)",
+  "0114.002799": "TUBULAR / ILHÓS 6MM",
+  "0114.002800": "TUBULAR / ILHÓS 6MM (DUPLO)",
+  "0114.002087": "PINO CHATO 25MM (ISOLADO)",
+  "0114.000765": "TUBULAR / ILHÓS 25MM",
+  "0114.000622": "OLHAL VERMELHO 10MM (FURO M10)",
+  "0114.002725": "OLHAL VERMELHO 10MM (FURO M6)",
+  "0114.002004": "OLHAL VERMELHO (FURO M4)",
+  "0114.002802": "TUBULAR / ILHÓS 10MM (DUPLO)",
+  "0114.000027": "PINO CHATO 35MM (ISOLADO)",
+  "0114.002801": "TUBULAR / ILHÓS 10MM",
+  "0114.002797": "TUBULAR / ILHÓS 4MM (CINZA)",
+  "0114.002793": "TUBULAR / ILHÓS 1,5MM (PRETO)",
+  "0114.002791": "TUBULAR / ILHÓS 0,75MM (CINZA)",
+  "0114.002798": "TUBULAR / ILHÓS 4MM (DUPLO) (CINZA)",
+  "0114.002794": "TUBULAR / ILHÓS 1,5MM (DUPLO) (PRETO)",
+  "0114.002792": "TUBULAR / ILHÓS 0,75MM (DUPLO) (CINZA)",
+  "0600.000001": "PONTE RETIFICADORA SEMIKRON SKB 30/16 A1",
+  "BMC-SD40X140": "TUBO RETRÁTIL A FRIO CINZA 40MM (USO 12,7 A 35MM)",
+  "BMC-SD28X110": "TUBO RETRÁTIL A FRIO CINZA 28MM (USO 10 A 24MM)",
+  "0600.000033": "PONTE RETIFICADORA TRIFÁSICA MDS 100A 1600V",
+  "0600.000002": "PONTE RETIFICADORA MONOFÁSICA KBPC3510 (35A 1000V)",
+  "0114.001930": "BORN CONECTOR PARA DISJUNTOR (INFERIOR)",
+  "0114.003121": "BORN CONECTOR PARA DISJUNTOR (LATERAL)",
+  "0114.002056": "CONECTOR TOMADA AC (MACHO 3 PINOS - PAINEL)",
+  "0114.003364": "LUVA DE IDENTIFICAÇÃO DE CABO",
+  "1100.000236": "CHAVE ON/OFF (LIGA E DESLIGA)",
+  "0114.003219": "SENSOR MAGNÉTICO C/ FIO XAS (SOBREPOR - 5PÇ)",
+  "0114.002860": "CONECTOR DERIVAÇÃO ALAVANCA 1/2 (2X4)",
+  "0103.000015": "CONECTOR DERIVAÇÃO ALAVANCA 1/5 (2X10 VIAS 32A)",
+  "0114.002859": "CONECTOR DERIVAÇÃO ALAVANCA 1/3 (2X6)",
+  "0103.000014": "CONECTOR DERIVAÇÃO ALAVANCA 1/4 (2X8 VIAS 32A)",
+  "0103.000016": "CONECTOR DERIVAÇÃO ALAVANCA 1/2 - 3 VIAS (3X6 VIAS 32A)",
+  "0114.002866": "CONECTOR ALAVANCA C/ BASE 2 VIAS",
+  "0114.002867": "CONECTOR ALAVANCA C/ BASE 3 VIAS",
+  "0114.000781": "CONECTOR ALAVANCA C/ BASE 6 VIAS",
+  "5014.002725": "CLIP ORGANIZADOR AUTOADESIVO 6MM (PRETO)",
+  "0114.003045": "FIXADOR ABRAÇADEIRA AUTOADESIVO 25X25MM (PRETO)",
+  "5003.002662": "CLIP FIXADOR ORGANIZADOR DE FIO E CABO 9MM AUTOADESIVO (PRETO)",
+  "CAW04-22-00V25": "CONTATORA WEG (MINI CONTATOR AUXILIAR CAW04 22E)",
+  "CRK-NMW-R214": "CONECTOR N MACHO - RG214",
+  "RF-N.M": "CONECTOR N MACHO - RG58/142",
+  "RF-BNC.M": "CONECTOR BNC MACHO - RG58/142",
+  "CRK-NFB-R142": "CONECTOR N FÊMEA - RG142"
+};
+const PADRAO_SEM = [
+  "LUVAS EPI MAXIGRIP",
+  "LUVAS EPI FLEXTACTIL",
+  "DEMAIS EPI (ÓCULOS, PROTETOR AURICULAR, AVENTAL)",
+  "UNIFORMES",
+  "PARAFUSO AUTO BROCANTE",
+  "FITA MÉTRICA",
+  "GUIA DE CABOS 2U & 1U",
+  "OLHAL AZUL 2,5MM (FURO M4)",
+  "OLHAL AMARELO (FURO M3)",
+  "TERMINAL OLHAL SEM ISOLAÇÃO (COBRE)",
+  "TERMINAL OLHAL SEM ISOLAÇÃO (ESTANHADO)",
+  "MÓDULO DE DIODO DUPLO IR",
+  "CONECTOR N MACHO",
+  "PLUGUE INDUSTRIAL STRAHL 32A 2P+T (AZUL)",
+  "TERMINAL ESPADA C/ TRAVA PEQUENO (ETE 7033 A)",
+  "CONTATORA WEG (MINI CONTATOR AUXILIAR CWCA0 22E)",
+  "BORNE DE PASSAGEM P/ TRILHO DIN",
+  "TAMPA FINAL P/ BORNE",
+  "ATENUADORES E CARGAS",
+  "ADAPTADORES TIPO \"T\", \"E\" E \"L\"",
+  "CONECTORES DE ENERGIA DIVERSOS",
+  "ADAPTADORES DIVERSOS",
+  "CONECTORES DIVERSOS",
+  "BALA DE CONECTOR",
+  "TOMADA REDONDA 110V",
+  "DIVISÓRIAS PARA GAVETA"
+];
+/* Lista de itens trocada pela lista oficial (roda uma vez só) */
+if (ONLINE){ st.cat = Object.assign({}, PADRAO); st.semCod = PADRAO_SEM.slice(); } /* online a lista de itens vem do Firebase */
+else if (st.catVersao !== CAT_VERSAO){ st.cat = Object.assign({}, PADRAO); st.semCod = PADRAO_SEM.slice(); st.catVersao = CAT_VERSAO; st.semeado = true; try { localStorage.setItem(K, JSON.stringify(st)); } catch(e) {} }
+if (!Array.isArray(st.semCod)) st.semCod = [];
+function salvar(){ const cc=document.getElementById('copiaCard'); if (cc) cc.hidden = true; if (ONLINE) return; try { localStorage.setItem(K, JSON.stringify(st)); } catch(e) { toast('Não consegui salvar no aparelho'); } }
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* Datas e horas sempre no horário de São Paulo */
+const TZ = 'America/Sao_Paulo';
+const fmtSP = new Intl.DateTimeFormat('pt-BR',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+function sp(t){ const o = {}; fmtSP.formatToParts(new Date(t)).forEach(p=>{ o[p.type] = p.value; }); if (o.hour==='24') o.hour='00'; return o; }
+const dataCurta = t => { const p = sp(t); return p.day+'/'+p.month; };
+const hora = t => { const p = sp(t); return p.hour+':'+p.minute; };
+const _dias = new Map();
+const diaDe = t => { let k = _dias.get(t); if (!k){ const p = sp(t); k = p.year+'-'+p.month+'-'+p.day; _dias.set(t, k); } return k; };
+const hoje = () => { const p = sp(Date.now()); return p.year+'-'+p.month+'-'+p.day; };
+
+function dataLonga(k){ const [y,m,d] = k.split('-'); const M=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; return d+' '+M[+m-1]+' '+y; }
+function somaDias(k, n){ const [y,m,d] = k.split('-').map(Number); const t = new Date(Date.UTC(y, m-1, d+n)); return t.getUTCFullYear()+'-'+String(t.getUTCMonth()+1).padStart(2,'0')+'-'+String(t.getUTCDate()).padStart(2,'0'); }
+function rotuloDia(k){
+  if (k===hoje()) return 'Hoje · '+dataLonga(k);
+  if (k===somaDias(hoje(),-1)) return 'Ontem · '+dataLonga(k);
+  const [y,m,d] = k.split('-').map(Number);
+  return ['dom','seg','ter','qua','qui','sex','sáb'][new Date(Date.UTC(y,m-1,d)).getUTCDay()]+' · '+dataLonga(k);
+}
+
+let tt;
+function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),1600); }
+
+/* Versão do Marcelo: guarda os dias anteriores, tem o Lançamento geral de todos e a aba Itens */
+if (GESTOR){
+  $('tabHist').hidden = false; $('tabItens').hidden = false; $('tabMembros').hidden = false; $('tabSep').hidden = false; $('tabs').classList.replace('dois','quatro'); $('tabs').classList.add('cinco');
+  $('tabAltTxt').textContent = 'Meus lançamentos'; $('tituloAlt').textContent = 'Meus lançamentos';
+}
+/* Quem está usando (online) */
+const CFG_K = GESTOR ? 'estoque_cfg_gestor' : 'estoque_cfg';
+let UID = null, FB = null, _offMov = null, _offCat = null;
+function lerCfg(){ try { return JSON.parse(localStorage.getItem(CFG_K)) || {}; } catch(e){ return {}; } }
+function salvarCfg(c){ try { localStorage.setItem(CFG_K, JSON.stringify(c)); } catch(e){} }
+const nomeAtual = () => ONLINE ? (GESTOR ? MEU_NOME : (lerCfg().nome || MEU_NOME)) : MEU_NOME;
+
+/* Solicitações e Lançamentos de hoje mostram só o que a própria pessoa lançou */
+const meu = x => ONLINE ? x.uid === UID : (!x.por || x.por===MEU_NOME);
+const todos = () => true;
+/* Tudo fica nas listas até virar o mês. Na virada (meia-noite do dia 1, São Paulo) as listas começam vazias.
+   Os dados continuam guardados no Firebase. */
+const DIA = 86400000;
+let _mes = {t: 0, v: ''};
+const mesAtual = () => { const n = Date.now(); if (n - _mes.t > 1000) _mes = {t: n, v: hoje().slice(0, 7)}; return _mes.v; };
+const inicioMes = () => mesAtual() + '-01';
+const ultimoDiaMes = () => { const [y, m] = mesAtual().split('-').map(Number); return mesAtual() + '-' + String(new Date(Date.UTC(y, m, 0)).getUTCDate()).padStart(2, '0'); };
+const ativo = x => diaDe(x.t).slice(0, 7) === mesAtual();
+/* alt (alteração): número = alterada e o Marcelo já viu.
+   Objeto = esperando o OK do Marcelo: {t, cod, nome, q, desc} guarda como era antes de alterar,
+   e com exc: true quer dizer que a pessoa excluiu (fica riscada no Lançamento geral até o OK). */
+const altT = x => x.alt && typeof x.alt === 'object' ? (x.alt.t || 0) : (x.alt || 0);
+const excluida = x => !!(x.alt && typeof x.alt === 'object' && x.alt.exc);
+const alteradaSemOk = x => !!(x.alt && typeof x.alt === 'object' && !x.alt.exc);
+const meusAtivos = x => meu(x) && ativo(x) && !excluida(x);
+const todosAtivos = x => ativo(x);
+const pendente = x => ativo(x) && !x.conc && !excluida(x);
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===b));
+  document.querySelectorAll('.view').forEach(v=>v.hidden = v.id!==b.dataset.view);
+  document.querySelector('main').scrollTop = 0;
+  atualizarBolinhas();
+});
+
+/* Bolinha vermelha nas abas: conta só o que chegou depois da última vez que a pessoa abriu a aba.
+   Abriu a aba, a bolinha some. Ela só volta quando chegar outra solicitação. */
+/* a chave mudou quando as listas passaram a guardar o mês todo, para a bolinha recomeçar zerada */
+const VISTOS_K = GESTOR ? 'estoque_vistos_gestor2' : 'estoque_vistos2';
+try { localStorage.removeItem(GESTOR ? 'estoque_vistos_gestor' : 'estoque_vistos'); } catch(e){}
+let vistos = (()=>{ try { return JSON.parse(localStorage.getItem(VISTOS_K)) || {}; } catch(e){ return {}; } })();
+let dadosProntos = !ONLINE; /* online: só conta depois que as solicitações chegaram do banco */
+const abaAberta = () => { const b = document.querySelector('.tab[aria-selected="true"]'); return b ? b.dataset.view : ''; };
+function bolinha(aba, el, ids){
+  const vendo = abaAberta() === aba && document.visibilityState !== 'hidden' && $('entrada').hidden;
+  let v = vistos[aba], mudou = false;
+  /* na primeira vez (logo depois desta atualização) tudo que já existe conta como visto */
+  if (dadosProntos && (!v || vendo)){
+    v = vistos[aba] = v || {};
+    const agora = Date.now();
+    ids.forEach(id=>{ if (!(id in v)){ v[id] = agora; mudou = true; } });
+  }
+  if (mudou){
+    const limite = Date.now() - 60 * DIA;
+    for (const a in vistos) for (const id in vistos[a]) if (vistos[a][id] < limite) delete vistos[a][id];
+    try { localStorage.setItem(VISTOS_K, JSON.stringify(vistos)); } catch(e){}
+  }
+  const n = v ? ids.filter(id=>!(id in v)).length : 0;
+  el.textContent = n; el.hidden = !n;
+}
+function atualizarBolinhas(){
+  bolinha('vAlt', $('badge'), st.mov.filter(meusAtivos).map(x=>x.id));
+  /* no app do Marcelo, o Lançamento geral avisa o que os outros mandaram ou alteraram */
+  if (GESTOR) bolinha('vHist', $('badgeHist'), st.mov.filter(x=>todosAtivos(x) && !meu(x)).map(x=>x.id + (altT(x) ? ':' + altT(x) : '')));
+}
+document.addEventListener('visibilitychange', ()=>{ if (document.visibilityState === 'visible') atualizarBolinhas(); });
+
+const chave = (cod,nome) => cod ? 'c:'+cod.toUpperCase() : 'n:'+nome.toLowerCase();
+const rotulo = (cod,nome) => nome || cod;
+const norm = v => String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+
+function resolver(cod, nome){
+  cod = (cod||'').trim().toUpperCase(); nome = (nome||'').trim();
+  if (cod && !nome && st.cat[cod]) nome = st.cat[cod];
+  if (nome && !cod){
+    const c = Object.keys(st.cat).find(k=>norm(st.cat[k])===norm(nome));
+    if (c){ cod = c; nome = st.cat[c]; }
+    else { const s = st.semCod.find(n=>norm(n)===norm(nome)); if (s) nome = s; }
+  }
+  return {cod, nome};
+}
+
+function catalogo(){
+  const m = {};
+  Object.keys(st.cat).forEach(c=>{ m['c:'+c] = {cod:c, nome:st.cat[c], uso:0}; });
+  st.semCod.forEach(n=>{ m['n:'+norm(n)] = {cod:'', nome:n, uso:0}; });
+  st.mov.forEach(x=>{
+    const r = resolver(x.cod, x.nome), k = r.cod ? 'c:'+r.cod : 'n:'+norm(r.nome);
+    m[k] = m[k] || {cod:r.cod, nome:r.nome, uso:0}; m[k].uso++;
+  });
+  return Object.values(m);
+}
+
+const SINONIMOS = [['dc','cc'],['abracadeira','hellerman'],['bipolar','2p'],['tripolar','3p'],['monopolar','unipolar','1p'],['tetrapolar','4p'],['v','volts','volt'],['a','amperes','amper']];
+function variantes(t){ const g = SINONIMOS.find(g=>g.includes(t)); return g ? g : [t]; }
+function buscar(q, max = 40){
+  const n = norm(q); if (!n) return [];
+  const toks = n.split(/\s+/);
+  return catalogo().map(it=>{
+    const c = norm(it.cod), nm = norm(it.nome), pal = nm.split(/\s+/);
+    let p = 0;
+    if (c && c===n) p = 100;
+    else if (c && c.startsWith(n)) p = 80;
+    else if (nm.startsWith(n)) p = 70;
+    else if (toks.every(t=>variantes(t).some(v=>pal.some(w=>w.startsWith(v))) || (c && c.startsWith(t)))) p = 50;
+    else if (toks.every(t=>variantes(t).some(v=>nm.includes(v)) || (c && c.includes(t)))) p = 30;
+    return {it, p};
+  }).filter(x=>x.p).sort((a,b)=>b.p-a.p || b.it.uso-a.it.uso).slice(0,max).map(x=>x.it);
+}
+
+function destacar(txt, q){
+  const n = norm(q); if (!n) return esc(txt);
+  const toks = n.split(/\s+/).filter(Boolean);
+  return String(txt).split(/(\s+)/).map(w=>{
+    const t = toks.find(t=>norm(w).startsWith(t));
+    return t ? '<mark>'+esc(w.slice(0,t.length))+'</mark>'+esc(w.slice(t.length)) : esc(w);
+  }).join('');
+}
+
+function autocompletar(codEl, nomeEl, box){
+  let res = [], ativo = 0;
+  function mostrar(el){
+    res = buscar(el.value);
+    if (res.length===1 && norm(res[0].cod)===norm(codEl.value) && norm(res[0].nome)===norm(nomeEl.value)) res = [];
+    if (!res.length){ box.hidden = true; return; }
+    ativo = 0; desenhar(el.value); box.hidden = false; box.scrollTop = 0;
+  }
+  function desenhar(q){
+    box.innerHTML = res.map((it,i)=>`<button type="button" class="opt ${i===ativo?'on':''}" data-i="${i}">${it.cod?'<code>'+esc(it.cod)+'</code>':''}<span>${it.nome?destacar(it.nome,q):'<em style="color:var(--mut)">sem nome</em>'}</span></button>`).join('');
+    const on = box.querySelector('.opt.on'); if (on && box.scrollHeight > box.clientHeight) on.scrollIntoView({block:'nearest'});
+  }
+  function escolher(i){
+    const it = res[i]; if (!it) return;
+    codEl.value = it.cod; nomeEl.value = it.nome;
+    box.hidden = true; res = [];
+  }
+  [codEl, nomeEl].forEach(el=>{
+    el.addEventListener('input', ()=>mostrar(el));
+    el.addEventListener('focus', ()=>{ if (el.value) mostrar(el); });
+    el.addEventListener('keydown', e=>{
+      if (box.hidden || !res.length) return;
+      if (e.key==='Tab' || e.key==='Enter'){ e.preventDefault(); escolher(ativo); }
+      else if (e.key==='ArrowDown'){ e.preventDefault(); ativo=(ativo+1)%res.length; desenhar(el.value); }
+      else if (e.key==='ArrowUp'){ e.preventDefault(); ativo=(ativo-1+res.length)%res.length; desenhar(el.value); }
+      else if (e.key==='Escape'){ box.hidden = true; }
+    });
+    el.addEventListener('blur', ()=>setTimeout(()=>{
+      if (document.activeElement!==codEl && document.activeElement!==nomeEl) box.hidden = true;
+    }, 120));
+  });
+  /* No dedo: arrastar rola a lista, só um toque parado escolhe a opção */
+  let toque = null;
+  box.addEventListener('touchstart', e=>{ const t = e.touches[0]; toque = {x: t.clientX, y: t.clientY, mexeu: false}; }, {passive: true});
+  box.addEventListener('touchmove', e=>{ if (!toque) return; const t = e.touches[0]; if (Math.abs(t.clientY - toque.y) > 8 || Math.abs(t.clientX - toque.x) > 8) toque.mexeu = true; }, {passive: true});
+  box.addEventListener('touchend', e=>{
+    const b = e.target.closest('.opt'), parado = toque && !toque.mexeu; toque = null;
+    if (!b || !parado) return;
+    e.preventDefault(); /* escolhe sem fechar o teclado */
+    escolher(+b.dataset.i);
+  }, {passive: false});
+  /* No mouse: mantém o cursor no campo e escolhe no clique */
+  box.addEventListener('mousedown', e=>{ if (e.target.closest('.opt')) e.preventDefault(); });
+  box.addEventListener('click', e=>{ const b = e.target.closest('.opt'); if (b) escolher(+b.dataset.i); });
+  return ()=>{ box.hidden = true; res = []; };
+}
+const fecharSugMain = autocompletar($('cod'), $('fItem'), $('sugMain'));
+
+function atualizaX(){ document.querySelectorAll('[data-limpa]').forEach(b=>{ b.hidden = !$(b.dataset.limpa).value; }); }
+['cod','fItem','fDesc'].forEach(id=>$(id).addEventListener('input', atualizaX));
+const maiusc = s => String(s||'').toLocaleUpperCase('pt-BR');
+function cresceDesc(){ const el=$('fDesc'); el.style.height=''; if (!el.value || !el.offsetParent) return; el.style.height = el.scrollHeight + 'px'; }
+$('fDesc').addEventListener('input', cresceDesc);
+document.querySelectorAll('[data-limpa]').forEach(b=>{
+  b.addEventListener('pointerdown', e=>e.preventDefault());
+  b.addEventListener('click', ()=>{ const el=$(b.dataset.limpa); el.value=''; fecharSugMain(); atualizaX(); if (el.id==='fDesc') cresceDesc(); el.focus({preventScroll:true}); });
+});
+setInterval(atualizaX, 400);
+
+/* Sem internet (versão antiga, só no aparelho): na virada do mês apaga o que é do mês passado */
+function limparDiasAntigos(){
+  if (ONLINE) return; /* online o Firebase guarda e as listas mostram só o mês atual */
+  const ini = inicioMes(), antes = st.mov.length;
+  st.mov = st.mov.filter(x=>diaDe(x.t) >= ini);
+  if (st.mov.length !== antes) salvar();
+}
+
+function agrupar(dia, filtro = meusAtivos){
+  const m = {};
+  st.mov.filter(x=>diaDe(x.t)===dia && filtro(x)).forEach(x=>{
+    const r = resolver(x.cod,x.nome), k = chave(r.cod,r.nome);
+    m[k] = m[k] || {k, cod:r.cod, nome:r.nome, saldo:0, e:0, s:0, movs:[]};
+    m[k].movs.push(x);
+    if (r.nome && !m[k].nome) m[k].nome = r.nome;
+    if (x.tipo==='e'){ m[k].saldo += x.q; m[k].e += x.q; } else { m[k].saldo -= x.q; m[k].s += x.q; }
+  });
+  return Object.values(m).sort((a,b)=>rotulo(a.cod,a.nome).localeCompare(rotulo(b.cod,b.nome)));
+}
+
+let ultimoId = null, editId = null;
+const LAPIS = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg>';
+const diasCom = filtro => [...new Set(st.mov.filter(filtro).map(x=>diaDe(x.t)))].sort().reverse();
+
+/* Cada registro: em cima a data e o horário, embaixo Código - produto - quantidade - descrição numa linha só */
+const dataCompleta = t => { const p = sp(t); return p.day+'/'+p.month+'/'+p.year; };
+const metaReg = x => `${dataCompleta(x.t)} · ${hora(x.t)}${x.aj?' · ajuste':''}${excluida(x)?' · excluída':(x.alt?' · alterado':'')}`;
+/* o que mudou na alteração: só os campos diferentes do que era antes */
+function oQueMudou(antes, x){
+  const ra = resolver(antes.cod, antes.nome), r = resolver(x.cod, x.nome), m = [];
+  if (ra.cod !== r.cod || ra.nome !== r.nome) m.push(ra.cod, ra.nome);
+  if (antes.q !== x.q) m.push('QTD ' + antes.q);
+  if ((antes.desc || '') !== (x.desc || '')) m.push(antes.desc || 'sem descrição');
+  return maiusc(m.filter(Boolean).join(' - '));
+}
+function textoReg(x){
+  const r = resolver(x.cod, x.nome);
+  return [r.cod ? `<b>${esc(r.cod)}</b>` : '', r.nome ? esc(r.nome) : '', `<span class="nw">QTD <b>${x.tipo==='e'?'+':''}${x.q}</b></span>`, x.desc ? esc(maiusc(x.desc)) : ''].filter(Boolean).join(' - ');
+}
+const regsDoDia = (k, filtro) => st.mov.filter(x=>diaDe(x.t)===k && filtro(x)).sort((a,b)=>b.t-a.t);
+
+/* Cartão verde de uma solicitação (as de dias anteriores não têm Alterar nem ×) */
+function cardRec(x, editavel){
+  const pode = editavel && !x.conc; /* depois de concluída não dá mais para alterar nem cancelar */
+  const acao = x.conc ? '<span class="tag-ok">✓ Concluído</span>' : (pode && !x.aj ? `<button type="button" class="mini" data-altera="${x.id}">${LAPIS}Alterar</button>` : '');
+  return `<div class="rg ${x.id===ultimoId?'novo':''} ${x.id===editId?'em-edicao':''} ${pode?'':'so-ver'}"><span class="rg-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+      <div class="rg-top"><span>${metaReg(x)}</span>${acao}</div>
+      ${pode?`<button type="button" class="rg-x" data-cancela="${x.id}" aria-label="Cancelar solicitação">×</button>`:''}
+      <div class="rg-tx">${textoReg(x)}</div></div>`;
+}
+
+/* Um registro na lista de lançamentos. No Lançamento geral (gerais = true) aparece o nome e o botão Concluir */
+function regHTML(x, gerais){
+  if (gerais && excluida(x)) return `<li class="reg exc"><div class="reg-top"><span class="reg-meta"><span>${metaReg(x)}</span>${x.por?`<span class="por">${esc(x.por)}</span>`:''}</span></div><div class="reg-tx">${textoReg(x)}</div><div class="aviso-alt exc"><span><b>Excluída</b> por ${esc(x.por || 'alguém')}</span><button type="button" class="okbtn" data-ok="${x.id}">OK</button></div></li>`;
+  const mudou = gerais && alteradaSemOk(x) ? oQueMudou(x.alt, x) : '';
+  const avisoAlt = mudou ? `<div class="aviso-alt"><span><b>Alterada</b> por ${esc(x.por || 'alguém')}. Antes - ${esc(mudou)}</span><button type="button" class="okbtn" data-ok="${x.id}">OK</button></div>` : '';
+  const sit = x.conc
+    ? (gerais ? `<button type="button" class="conc on" data-conc="${x.id}">✓ Concluído</button>` : '<span class="tag-ok">✓ Concluído</span>')
+    : (gerais ? `<button type="button" class="conc" data-conc="${x.id}">Concluir</button>` : '');
+  const acoes = gerais ? `<span class="reg-acoes">${sit}<button type="button" class="reg-x" data-exclui="${x.id}" aria-label="Excluir solicitação">×</button></span>` : sit;
+  return `<li class="reg ${x.conc?'ok':''}"><div class="reg-top"><span class="reg-meta"><span>${metaReg(x)}</span>${gerais && x.por?`<span class="por">${esc(x.por)}</span>`:''}</span>${acoes}</div><div class="reg-tx">${textoReg(x)}</div>${avisoAlt}</li>`;
+}
+
+/* Lançamento geral (só no app do Marcelo): hoje e os dias anteriores do mês, de todo mundo */
+let histLimite = 14;
+const cardDiaGeral = k => {
+  const xs = regsDoDia(k, todosAtivos);
+  const pend = xs.filter(pendente).length;
+  return `<div class="card"><h2 class="dia-top"><span>${rotuloDia(k)}</span></h2>${xs.length?`<ul>${xs.map(x=>regHTML(x, true)).join('')}</ul>`:'<div class="empty">Nenhum lançamento hoje.</div>'}${pend?`<div class="row acao-dia"><button type="button" class="ghost" data-copia="${k}">Copiar lista</button><button type="button" class="big pri" data-conc-dia="${k}">Concluir tudo (${pend})</button></div>`:''}</div>`;
+};
+function renderHist(){
+  const h = hoje(), dias = diasCom(todosAtivos).filter(k=>k<h);
+  $('histDias').innerHTML = cardDiaGeral(h)
+    + (dias.length ? '<div class="sep-dias">Dias anteriores</div>' + dias.slice(0, histLimite).map(cardDiaGeral).join('') : '')
+    + (dias.length > histLimite ? '<button type="button" class="ghost" data-mais>Mostrar mais dias</button>' : '');
+}
+
+function render(){
+  const dia = hoje();
+  $('hojeCurto').textContent = dataLonga(dia);
+  $('altDia').textContent = 'Hoje · ' + dataLonga(dia);
+
+  const doDia = st.mov.filter(x=>diaDe(x.t)===hoje() && meusAtivos(x)).sort((a,b)=>b.t-a.t);
+  if (editId && !st.mov.some(m=>m.id===editId)) limparForm();
+  $('formTit').textContent = editId ? 'Alterar solicitação' : 'Nova solicitação';
+  $('btnLancar').textContent = editId ? 'Salvar' : 'Lançar';
+  $('btnCancelEd').hidden = !editId;
+  $('formCard').classList.toggle('editando', !!editId);
+  $('recCard').hidden = !doDia.length;
+  $('contRec').textContent = doDia.length || '';
+  $('listaRec').innerHTML = doDia.map(x=>cardRec(x, true)).join('');
+
+  const meus = regsDoDia(dia, meusAtivos);
+  $('alteracoes').innerHTML = meus.length ? meus.map(x=>regHTML(x, false)).join('') : `<div class="empty">Nenhum lançamento hoje.</div>`;
+
+  /* Dias anteriores do mês ficam guardados e separados (Ontem, data...) */
+  const antigos = diasCom(meusAtivos).filter(k=>k<dia);
+  const SEP = antigos.length ? '<div class="sep-dias">Dias anteriores</div>' : '';
+  $('altAntigos').innerHTML = SEP + antigos.map(k=>`<div class="card"><h2><span>${rotuloDia(k)}</span></h2><ul>${regsDoDia(k, meusAtivos).map(x=>regHTML(x, false)).join('')}</ul></div>`).join('');
+  if (GESTOR){
+    $('recAntigos').innerHTML = SEP + antigos.map(k=>{
+      const xs = st.mov.filter(x=>diaDe(x.t)===k && meusAtivos(x)).sort((a,b)=>b.t-a.t);
+      return `<div class="card"><h2><span>${rotuloDia(k)}</span><span>${xs.length}</span></h2><div class="lista-rec">${xs.map(x=>cardRec(x, false)).join('')}</div></div>`;
+    }).join('');
+    renderHist();
+    renderMembros();
+  }
+  /* aviso vermelho no último dia do mês, só no app do Marcelo */
+  $('avisoReset').hidden = !(GESTOR && dia === ultimoDiaMes());
+
+  atualizarBolinhas();
+  $('avisoBox').hidden = !(ONLINE && GESTOR && st.aviso);
+  if (st.aviso) $('avisoTopico').textContent = st.aviso;
+  renderItens();
+}
+
+function lancar(){
+  const {cod, nome} = resolver($('cod').value, $('fItem').value);
+  const desc = maiusc($('fDesc').value.trim());
+  if (!cod && !nome){ toast('Preencha o código ou o nome'); return; }
+  if (!desc){ toast('Preencha a descrição'); return; }
+  /* Solicitação é sempre saída: 1, +1 ou -1 contam como saiu 1 */
+  const q = parseInt(String($('qtd').value).replace(/\D/g,''), 10);
+  if (!q){ toast('Digite a quantidade'); return; }
+  const tipo = 's';
+  if (ONLINE && !UID){ toast('Entre primeiro'); return; }
+  /* no app do Marcelo, item novo digitado na solicitação entra na lista de itens */
+  if (!ONLINE || GESTOR){
+    let mudou = false;
+    if (cod){ if (st.cat[cod] === undefined || (nome && st.cat[cod] !== nome)){ st.cat[cod] = nome; mudou = true; } }
+    else if (!st.semCod.some(n=>norm(n)===norm(nome))){ st.semCod.push(nome); mudou = true; }
+    if (mudou) dados.catalogo();
+  }
+  const editou = !!editId;
+  let id;
+  if (editou){
+    const atual = st.mov.find(m=>m.id===editId);
+    if (!atual){ limparForm(); render(); toast('Essa solicitação não existe mais'); return; }
+    const antes = Object.assign({}, atual);
+    if (antes.cod === cod && antes.nome === nome && antes.q === q && (antes.desc || '') === desc){ limparForm(); render(); toast('Nada foi alterado'); return; }
+    id = editId;
+    /* se já tinha uma alteração esperando o OK, continua valendo o "antes" de lá */
+    const orig = alteradaSemOk(antes) ? antes.alt : {cod: antes.cod, nome: antes.nome, q: antes.q, desc: antes.desc || ''};
+    const voltouIgual = orig.cod === cod && orig.nome === nome && orig.q === q && (orig.desc || '') === desc;
+    const alt = ONLINE && !GESTOR && !voltouIgual ? {t: Date.now(), cod: orig.cod, nome: orig.nome, q: orig.q, desc: orig.desc || ''} : Date.now();
+    dados.atualizar(id, {cod, nome, q, tipo, desc, alt});
+    avisarGestor(st.mov.find(m=>m.id===id) || Object.assign({}, antes, {cod, nome, q, desc}), antes);
+  } else {
+    const t = Date.now(), por = nomeAtual(); id = novoId(t);
+    const nova = Object.assign({id, cod, nome, q, tipo, t, desc}, por ? {por} : {});
+    dados.criar(nova);
+    avisarGestor(nova);
+  }
+  ultimoId = id;
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  limparForm();
+  render();
+  setTimeout(()=>{ if (ultimoId===id) ultimoId = null; }, 1600);
+  toast(editou ? 'Solicitação alterada' : (tipo==='e'?'+':'−')+q+' '+rotulo(cod,nome));
+}
+$('btnLancar').onclick = lancar;
+
+/* Alterar uma solicitação: carrega no formulário de cima e o botão vira Salvar */
+function limparForm(){
+  editId = null;
+  ['cod','fItem','fDesc','qtd'].forEach(id=>$(id).value='');
+  cresceDesc(); fecharSugMain(); atualizaX();
+}
+function alterar(id){
+  const x = st.mov.find(m=>m.id===id); if (!x) return;
+  const r = resolver(x.cod, x.nome);
+  editId = id;
+  $('cod').value = r.cod || x.cod || '';
+  $('fItem').value = r.nome || x.nome || '';
+  $('fDesc').value = maiusc(x.desc || '');
+  $('qtd').value = String(x.q);
+  fecharSugMain(); atualizaX(); render(); cresceDesc();
+  areaRolagem.scrollTo({top:0, behavior:'smooth'});
+}
+$('btnCancelEd').onclick = ()=>{
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  limparForm(); render();
+};
+
+/* Pop-up de confirmação */
+let modalAcao = null;
+function popup(titulo, msg, fn, bom){ $('modalTit').textContent = titulo; $('modalMsg').textContent = msg; modalAcao = fn; $('modalSim').classList.toggle('perigo', !bom); $('modalSim').classList.toggle('pri', !!bom); $('modal').hidden = false; }
+function fechaPopup(){ modalAcao = null; $('modal').hidden = true; }
+$('modalNao').onclick = fechaPopup;
+$('modal').addEventListener('click', e=>{ if (e.target.id==='modal') fechaPopup(); });
+$('modalSim').onclick = ()=>{ const f = modalAcao; fechaPopup(); if (f) f(); };
+
+/* × em cada solicitação de hoje */
+$('listaRec').onclick = e=>{
+  const a = e.target.closest('[data-altera]');
+  if (a){ alterar(a.dataset.altera); return; }
+  const b = e.target.closest('[data-cancela]'); if (!b) return;
+  const x = st.mov.find(m=>m.id===b.dataset.cancela); if (!x) return;
+  const r = resolver(x.cod, x.nome);
+  popup('Cancelar solicitação?', `${x.tipo==='e'?'+':'−'}${x.q} ${rotulo(r.cod,r.nome)}`, ()=>{
+    if (ONLINE && !GESTOR){ dados.atualizar(x.id, {alt: {t: Date.now(), exc: true}}); avisarGestor(x, null, true); }
+    else dados.apagar(x.id);
+    if (editId===x.id) limparForm();
+    render(); toast('Solicitação cancelada');
+  });
+};
+$('qtd').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); lancar(); } });
+
+let itemAberto = null, apagarCat = null;
+/* Itens com código ficam em st.cat {código: nome}; sem código ficam em st.semCod [nome] */
+const chaveItem = (cod, nome) => cod ? 'c:' + cod : 'n:' + norm(nome);
+const itensCat = () => Object.keys(st.cat).map(c=>({k: chaveItem(c), cod: c, nome: st.cat[c] || ''}))
+  .concat(st.semCod.map(n=>({k: chaveItem('', n), cod: '', nome: n})))
+  .sort((a,b)=>(a.nome || a.cod).localeCompare(b.nome || b.cod) || a.cod.localeCompare(b.cod));
+const itemExiste = (cod, nome, menos) => itensCat().some(i=>i.k !== menos && i.k === chaveItem(cod, nome));
+function tirarItem(i){ if (i.cod) delete st.cat[i.cod]; else st.semCod = st.semCod.filter(n=>norm(n) !== norm(i.nome)); }
+function porItem(cod, nome){ if (cod) st.cat[cod] = nome; else st.semCod.push(nome); }
+function renderItens(){
+  const todos = itensCat(), porChave = new Map(todos.map(i=>[i.k, i]));
+  $('contItens').textContent = todos.length ? '· '+todos.length : '';
+  const q = $('buscaItem').value;
+  const lista = q.trim() ? [...new Set(buscar(q, 5000).map(it=>chaveItem(it.cod, it.nome)))].filter(k=>porChave.has(k)).map(k=>porChave.get(k)) : todos;
+  if (!todos.length){ $('listaItens').innerHTML = '<div class="empty">Nenhum item cadastrado.</div>'; }
+  else if (!lista.length){ $('listaItens').innerHTML = '<div class="empty">Nenhum item encontrado.</div>'; }
+  else $('listaItens').innerHTML = lista.map(i=>{
+    const aberto = itemAberto===i.k;
+    return `<li><div class="nm">${i.cod ? `<code class="cc">${esc(i.cod)}</code>` : '<code class="cc sem">Sem código</code>'}<b style="margin-top:3px">${i.nome ? esc(i.nome) : '<em class="sem">Sem nome</em>'}</b></div>
+      <button class="aj" data-it="${esc(i.k)}" aria-expanded="${aberto}" aria-label="Editar item">${aberto?'×':LAPIS}</button></li>`
+      + (aberto ? `<li class="ajuste">
+        <div class="grid2" style="flex:1 1 100%">
+          <input id="itCod" type="search" enterkeyhint="done" class="code" value="${esc(i.cod)}" placeholder="Sem código" aria-label="Codigo" autocomplete="off" autocapitalize="characters">
+          <input id="fEdItem" type="search" enterkeyhint="done" name="f_ed_x" value="${esc(i.nome)}" placeholder="Sem nome" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">
+        </div>
+        <button class="danger ${apagarCat===i.k?'sure':''}" data-itdel>${apagarCat===i.k?'Toque de novo':'Excluir'}</button>
+        <button class="big pri" data-itsalvar>Salvar</button></li>` : '');
+  }).join('');
+}
+function novoItem(){
+  const cod = $('novoCod').value.trim().toUpperCase(), nome = maiusc($('fNovoItem').value.trim());
+  if (!cod && !nome){ toast('Preencha o código ou o nome'); return; }
+  if (itemExiste(cod, nome)){ toast(cod ? 'Esse código já existe' : 'Esse item já existe'); return; }
+  porItem(cod, nome);
+  $('novoCod').value=''; $('fNovoItem').value='';
+  dados.catalogo(); render(); toast('Item adicionado');
+}
+$('btnNovo').onclick = novoItem;
+$('fNovoItem').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); novoItem(); } });
+$('novoCod').addEventListener('keydown', e=>{ if (e.key==='Enter'){ e.preventDefault(); $('fNovoItem').focus(); } });
+$('buscaItem').addEventListener('input', ()=>{ itemAberto=null; renderItens(); });
+$('listaItens').onclick = e=>{
+  const b = e.target.closest('[data-it]');
+  if (b){ itemAberto = itemAberto===b.dataset.it ? null : b.dataset.it; apagarCat=null; renderItens(); return; }
+  const i = itensCat().find(i=>i.k===itemAberto); if (!i) return;
+  if (e.target.closest('[data-itsalvar]')){
+    const nc = $('itCod').value.trim().toUpperCase(), nn = maiusc($('fEdItem').value.trim());
+    if (!nc && !nn){ toast('Preencha o código ou o nome'); return; }
+    if (itemExiste(nc, nn, i.k)){ toast(nc ? 'Esse código já existe' : 'Esse item já existe'); return; }
+    tirarItem(i); porItem(nc, nn);
+    if (!ONLINE) st.mov.forEach(x=>{ if (chaveItem(x.cod, x.nome)===i.k){ x.cod = nc; x.nome = nn; } });
+    itemAberto=null; dados.catalogo(); render(); toast('Item atualizado');
+    return;
+  }
+  if (e.target.closest('[data-itdel]')){
+    if (apagarCat!==i.k){ apagarCat=i.k; renderItens(); return; }
+    tirarItem(i); itemAberto=null; apagarCat=null; dados.catalogo(); render(); toast('Item excluído');
+  }
+};
+
+function copiarDia(k){
+  const g = agrupar(k, pendente).filter(i=>i.saldo!==0);
+  if (!g.length){ toast('Nada pendente para copiar'); return; }
+  const [y,m,d] = k.split('-');
+  const semana = new Date(+y,+m-1,+d).toLocaleDateString('pt-BR',{weekday:'long'});
+  const linha = '──────────';
+  const ent = g.filter(i=>i.saldo>0), sai = g.filter(i=>i.saldo<0);
+  const larg = Math.max(...g.map(i=>String(Math.abs(i.saldo)).length)) + 1;
+  const bloco = i=>{
+    const n = ((i.saldo>0?'+':'-') + Math.abs(i.saldo)).padEnd(larg);
+    const rec = ' '.repeat(larg + 5);
+    const ds = [...new Set(i.movs.map(x=>{ const t = (x.desc||'').trim(); return t ? t + (x.por ? ' ('+x.por+')' : '') : ''; }).filter(Boolean).map(maiusc))];
+    const obs = ds.length ? `\n${rec}Obs: ${ds.join('; ')}` : '';
+    if (i.cod && i.nome) return `  ${n}   ${i.cod}\n${rec}${i.nome}${obs}`;
+    return `  ${n}   ${i.cod || i.nome}${obs}`;
+  };
+  const titulo = k===hoje() ? 'Lançamento geral de hoje' : (k===somaDias(hoje(),-1) ? 'Lançamento geral de ontem' : 'Lançamento geral');
+  let txt = `${titulo}\n${semana}, ${d}/${m}/${y}\n${linha}`;
+  if (ent.length) txt += `\n\nEntradas\n` + ent.map(bloco).join('\n\n');
+  if (sai.length) txt += `\n\nSaídas\n` + sai.map(bloco).join('\n\n');
+  const pl = (n,a,b)=>n+' '+(n===1?a:b);
+  txt += `\n\n${linha}\n${pl(g.length,'item','itens')} · ${pl(ent.length,'entrada','entradas')} · ${pl(sai.length,'saída','saídas')}`;
+  txt = maiusc(txt);
+  $('copiaCard').hidden = true;
+  const mostrar = ()=>{ $('copiaTxt').value=txt; $('copiaCard').hidden=false; $('copiaTxt').select(); $('copiaCard').scrollIntoView({block:'nearest'}); };
+  try { navigator.clipboard.writeText(txt).then(()=>toast('Lista copiada'), mostrar); } catch(e){ mostrar(); }
+}
+$('histDias').onclick = e=>{
+  const c = e.target.closest('[data-copia]'); if (c){ copiarDia(c.dataset.copia); return; }
+  const ok = e.target.closest('[data-ok]');
+  if (ok){ /* OK do Marcelo: a excluída some de vez; a alterada fica normal, já atualizada */
+    const x = st.mov.find(m=>m.id===ok.dataset.ok); if (!x) return;
+    if (excluida(x)) dados.apagar(x.id); else dados.atualizar(x.id, {alt: altT(x) || Date.now()});
+    render(); return;
+  }
+  const xb = e.target.closest('[data-exclui]');
+  if (xb){
+    const x = st.mov.find(m=>m.id===xb.dataset.exclui); if (!x) return;
+    const r = resolver(x.cod, x.nome);
+    popup('Excluir solicitação?', maiusc([x.por, r.cod, 'QTD ' + x.q].filter(Boolean).join(' - ')) + '. Ela some também do app da pessoa.', ()=>{
+      dados.apagar(x.id); render(); toast('Solicitação excluída');
+    });
+    return;
+  }
+  const b = e.target.closest('[data-conc]');
+  if (b){
+    const x = st.mov.find(m=>m.id===b.dataset.conc); if (!x) return;
+    dados.concluir([x.id], x.conc ? null : Date.now());
+    render(); toast(x.conc ? 'Concluído' : 'Voltou para pendente');
+    return;
+  }
+  const d = e.target.closest('[data-conc-dia]');
+  if (d){
+    const k = d.dataset.concDia, xs = st.mov.filter(x=>diaDe(x.t)===k && pendente(x));
+    popup('Concluir tudo?', `${rotuloDia(k)} · ${xs.length} ${xs.length===1?'solicitação':'solicitações'}`, ()=>{
+      dados.concluir(xs.map(x=>x.id), Date.now());
+      render(); toast('Tudo concluído');
+    }, true);
+    return;
+  }
+  if (e.target.closest('[data-mais]')){ histLimite += 14; renderHist(); }
+};
+
+let ultimoDia = hoje();
+function checarDia(){
+  if (hoje()===ultimoDia) return;
+  const virouMes = ultimoDia.slice(0, 7) !== hoje().slice(0, 7);
+  ultimoDia = hoje(); limparDiasAntigos();
+  if (virouMes && ONLINE && GESTOR && _offMov) assinar(); /* o app do Marcelo passa a buscar só o mês novo */
+  agendarAvisosReset(); render();
+}
+setInterval(checarDia, 30000);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) checarDia(); });
+/* Acorda exatamente à meia-noite de São Paulo */
+function agendarMeiaNoite(){
+  const p = sp(Date.now());
+  const passou = ((+p.hour*60 + +p.minute)*60 + +p.second)*1000;
+  setTimeout(()=>{ checarDia(); agendarMeiaNoite(); }, Math.max(1000, 86400000 - passou + 500));
+}
+agendarMeiaNoite();
+
+/* Ao digitar, deixa o cartão inteiro (Codigo, Nome e Quantidade) visível abaixo das abas */
+/* Ao digitar, deixa o cartão inteiro visível; a barra de cima nunca rola */
+const areaRolagem = document.querySelector('main');
+document.addEventListener('focusin', e=>{
+  const el = e.target; if (!el.matches('input, textarea')) return;
+  setTimeout(()=>{
+    const caixa = areaRolagem.getBoundingClientRect();
+    let alvo = el.closest('.card') || el;
+    if (alvo.getBoundingClientRect().height > caixa.height * 0.8) alvo = el.closest('li') || el.parentElement;
+    const escondido = (caixa.top + 8) - alvo.getBoundingClientRect().top;
+    if (escondido > 0){
+      const espaco = caixa.bottom - el.getBoundingClientRect().bottom - 8;
+      const mover = Math.min(escondido, Math.max(0, espaco));
+      if (mover > 0) areaRolagem.scrollBy({top: -mover, behavior: 'smooth'});
+    }
+    const abaixo = el.getBoundingClientRect().bottom - (caixa.bottom - 8);
+    if (abaixo > 0) areaRolagem.scrollBy({top: abaixo, behavior: 'smooth'});
+  }, 350);
+});
+
+/* Teclado: o app encolhe para caber acima dele, em vez de a tela inteira subir */
+if (window.visualViewport){
+  const vv = window.visualViewport;
+  const ajusta = ()=>{
+    document.documentElement.style.setProperty('--apph', vv.height + 'px');
+    if (window.scrollY || vv.offsetTop) window.scrollTo(0, 0);
+  };
+  vv.addEventListener('resize', ajusta); vv.addEventListener('scroll', ajusta);
+  window.addEventListener('scroll', ()=>{ if (window.scrollY) window.scrollTo(0, 0); });
+  ajusta();
+}
+
+/* ====== Dados: cada ação passa por aqui. Online vai para o Firebase, senão fica no celular ====== */
+const novoId = t => String(t) + Math.random().toString(36).slice(2, 8);
+function falhou(e){ console.warn(e); toast(e && e.code==='permission-denied' ? 'Sem permissão para isso' : 'Não deu para salvar. Tente de novo.'); }
+const refMov = id => FB.fs.doc(FB.db, 'equipes', lerCfg().codigo, 'solicitacoes', id);
+const refCat = codigo => FB.fs.doc(FB.db, 'equipes', codigo || lerCfg().codigo, 'config', 'catalogo');
+const dados = {
+  criar(x){
+    if (ONLINE){
+      Object.assign(x, {uid: UID, dia: diaDe(x.t), ativo: true});
+      const y = Object.assign({}, x); delete y.id;
+      FB.fs.setDoc(refMov(x.id), y).catch(falhou);
+    }
+    st.mov.push(x); salvar();
+  },
+  atualizar(id, campos){
+    const x = st.mov.find(m=>m.id===id); if (x) Object.assign(x, campos);
+    if (ONLINE) FB.fs.updateDoc(refMov(id), campos).catch(falhou);
+    salvar();
+  },
+  apagar(id){
+    st.mov = st.mov.filter(m=>m.id!==id);
+    if (ONLINE) FB.fs.deleteDoc(refMov(id)).catch(falhou);
+    salvar();
+  },
+  concluir(ids, valor){
+    ids.forEach(id=>{ const x = st.mov.find(m=>m.id===id); if (x){ if (valor) x.conc = valor; else delete x.conc; } });
+    if (ONLINE){ const b = FB.fs.writeBatch(FB.db); ids.forEach(id=>b.update(refMov(id), {conc: valor || FB.fs.deleteField()})); b.commit().catch(falhou); }
+    salvar();
+  },
+  catalogo(){
+    salvar();
+    if (ONLINE && GESTOR) FB.fs.setDoc(refCat(), docLista()).catch(falhou);
+  }
+};
+
+/* Arrumação feita pelo app do Marcelo (os dados nunca são apagados do Firebase):
+   - as solicitações deste mês ficam com ativo = true, para aparecerem no app de cada pessoa
+     (a versão antiga escondia as concluídas depois de 1 dia);
+   - uma vez por mês, as dos meses anteriores ficam com ativo = false e saem do app das pessoas. */
+let _arrumando = false;
+async function arrumarMes(){
+  if (!ONLINE || !GESTOR || !FB || _arrumando) return;
+  _arrumando = true;
+  try {
+    const voltar = st.mov.filter(x=>x.ativo === false && ativo(x));
+    for (let i = 0; i < voltar.length; i += 400){
+      const b = FB.fs.writeBatch(FB.db);
+      voltar.slice(i, i + 400).forEach(x=>{ x.ativo = true; b.update(refMov(x.id), {ativo: true}); });
+      await b.commit();
+    }
+    const cfg = lerCfg(), mes = mesAtual();
+    if (cfg.arrumouMes !== mes){
+      const col = FB.fs.collection(FB.db, 'equipes', cfg.codigo, 'solicitacoes');
+      const snap = await FB.fs.getDocs(FB.fs.query(col, FB.fs.where('ativo', '==', true)));
+      const ini = inicioMes(), velhos = snap.docs.filter(d=>!ehMembro(d.id) && (d.data().dia || '') < ini);
+      for (let i = 0; i < velhos.length; i += 400){
+        const b = FB.fs.writeBatch(FB.db);
+        velhos.slice(i, i + 400).forEach(d=>b.update(refMov(d.id), {ativo: false}));
+        await b.commit();
+      }
+      const c = lerCfg(); c.arrumouMes = mes; salvarCfg(c);
+    }
+  } catch(e){ console.warn(e); }
+  finally { _arrumando = false; }
+}
+
+/* ====== Firebase ====== */
+async function carregarFirebase(){
+  const base = 'https://www.gstatic.com/firebasejs/' + FB_VER + '/';
+  const [a, au, fs] = await Promise.all(['firebase-app.js','firebase-auth.js','firebase-firestore.js'].map(f=>import(base + f)));
+  /* login do app do Marcelo fica separado do login do app das pessoas, mesmo no mesmo navegador */
+  const app = GESTOR ? a.initializeApp(FIREBASE, 'gestor') : a.initializeApp(FIREBASE);
+  const auth = au.initializeAuth(app, {persistence: [au.indexedDBLocalPersistence, au.browserLocalPersistence]});
+  let db;
+  try { db = fs.initializeFirestore(app, {localCache: fs.persistentLocalCache({tabManager: fs.persistentMultipleTabManager()})}); }
+  catch(e){ db = fs.initializeFirestore(app, {}); }
+  FB = {au, fs, auth, db};
+}
+const primeiroUsuario = () => new Promise(res=>{ const off = FB.au.onAuthStateChanged(FB.auth, u=>{ off(); res(u); }); });
+
+async function iniciarOnline(){
+  if (GESTOR){ $('entEmailBox').hidden = false; $('entSenhaBox').hidden = false; $('entNomeBox').hidden = true; $('entSub').textContent = MEU_NOME; }
+  /* No iPhone o app só funciona pelo ícone na Tela de Início. Pelo Safari, só aparece o passo a passo para instalar */
+  else if (IOS && !instalado()) return etapa('instalar');
+  etapa('carregando');
+  /* No Android também só funciona instalado. Sem os ícones no site o Android não instala de verdade,
+     então nesse caso deixa usar pelo navegador (com o aviso para instalar) para ninguém ficar travado */
+  if (!GESTOR && ANDROID && !instalado() && await iconesNoSite()) return etapa('instalarAnd');
+  try { await carregarFirebase(); } catch(e){ console.warn(e); etapa('falha'); return; }
+  let u = await primeiroUsuario(); const cfg = lerCfg();
+  if (u && !GESTOR && !u.isAnonymous) u = null; /* no app das pessoas ninguém usa a conta do Marcelo */
+  if (u && cfg.codigo && cfg.nome && (!GESTOR || !u.isAnonymous)){ UID = u.uid; $('entrada').hidden = true; mostrarQuem(); assinar(); }
+  else etapa('form');
+}
+function etapa(e, erro){
+  $('entrada').hidden = false;
+  $('entCarregando').hidden = e!=='carregando'; $('entFalha').hidden = e!=='falha'; $('entForm').hidden = e!=='form'; $('entInstalar').hidden = e!=='instalar'; $('entInstAnd').hidden = e!=='instalarAnd';
+  $('entErro').textContent = erro || '';
+  const c = lerCfg();
+  if (e==='instalar'){
+    $('entInstCod').hidden = !codigoValido(c.codigo); $('entInstCodTx').textContent = c.codigo || '';
+    const p = passoCompartilhar();
+    $('instPasso1').innerHTML = p.txt;
+    $('setaInst').className = 'seta ' + p.seta;
+  }
+  if (e==='instalarAnd'){
+    const p = passosAndroid(), pronto = !!lerCfg().instalado;
+    $('instAndBotao').hidden = !pedidoInstalar || pronto;
+    $('instAndPassos').hidden = !!pedidoInstalar || pronto;
+    $('instAndPronto').hidden = !pronto;
+    $('instAndP1').innerHTML = p.p1; $('instAndP2').innerHTML = p.p2;
+    $('setaInst').className = 'seta ' + p.seta;
+  }
+  const comSeta = (e==='instalar' && passoCompartilhar().seta) || (e==='instalarAnd' && !pedidoInstalar && !lerCfg().instalado && passosAndroid().seta);
+  $('setaInst').hidden = !comSeta;
+  if (e==='form'){
+    if (c.codigo && !$('entCodigo').value) $('entCodigo').value = c.codigo;
+    /* com o código já guardado (veio no link), a pessoa só digita o nome. Se o código der errado, o campo aparece */
+    const esconder = !GESTOR && codigoValido(c.codigo) && !/código/i.test(erro || '');
+    if (esconder) $('entCodigo').value = c.codigo;
+    $('entCodigoBox').hidden = esconder;
+    if (!GESTOR && !$('entNome').value) $('entNome').value = lerCookie('e0103n');
+  }
+}
+function msgErro(e){
+  const c = (e && e.code) || '';
+  if (c==='permission-denied') return GESTOR ? 'Código da equipe errado, ou esse usuário não é o do ' + MEU_NOME : 'Código da equipe errado';
+  if (/invalid-credential|wrong-password|user-not-found|invalid-email|missing-password/.test(c)) return 'E-mail ou senha errados';
+  if (/network-request-failed|unavailable/.test(c)) return 'Sem internet. Tente de novo.';
+  if (/too-many-requests/.test(c)) return 'Muitas tentativas. Espere um pouco e tente de novo.';
+  if (/operation-not-allowed|admin-restricted/.test(c)) return 'Esse tipo de login não está ativado no Firebase';
+  return 'Não deu para entrar' + (c ? ' (' + c + ')' : '');
+}
+/* Lista de itens como fica guardada no Firebase */
+const docLista = () => ({itens: st.cat, semCod: st.semCod, versao: CAT_VERSAO, t: Date.now()});
+$('entForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  if (!FB) return;
+  const codigo = $('entCodigo').value.trim().toUpperCase().replace(/\s+/g,'');
+  const nome = $('entNome').value.trim().replace(/\s+/g,' ').slice(0, 40);
+  if (GESTOR && (!$('entEmail').value.trim() || !$('entSenha').value)) return etapa('form', 'Digite o e-mail e a senha');
+  if (!codigo) return etapa('form', 'Digite o código da equipe');
+  if (!GESTOR && !nome) return etapa('form', 'Digite o seu nome');
+  const b = $('entBtn'); b.disabled = true; b.textContent = 'Entrando...';
+  try {
+    if (GESTOR) await FB.au.signInWithEmailAndPassword(FB.auth, $('entEmail').value.trim(), $('entSenha').value);
+    else {
+      if (FB.auth.currentUser && !FB.auth.currentUser.isAnonymous) await FB.au.signOut(FB.auth);
+      if (!FB.auth.currentUser) await FB.au.signInAnonymously(FB.auth);
+    }
+    UID = FB.auth.currentUser.uid;
+    const s = await FB.fs.getDoc(refCat(codigo));
+    if (GESTOR && !s.exists()) await FB.fs.setDoc(refCat(codigo), {itens: Object.assign({}, PADRAO), semCod: PADRAO_SEM.slice(), versao: CAT_VERSAO, t: Date.now()});
+    salvarCfg(Object.assign(lerCfg(), {codigo, nome: GESTOR ? MEU_NOME : nome}));
+    if (!GESTOR){ guardarCookie('e0103c', codigo); guardarCookie('e0103n', nome); }
+    $('entSenha').value = '';
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    $('entrada').hidden = true; mostrarQuem(); assinar();
+  } catch(err){ console.warn(err); etapa('form', msgErro(err)); }
+  finally { b.disabled = false; b.textContent = 'Entrar'; }
+});
+$('entTentar').onclick = ()=> location.reload();
+
+function assinar(){
+  const fs = FB.fs, cfg = lerCfg();
+  UID = FB.auth.currentUser ? FB.auth.currentUser.uid : UID;
+  if (GESTOR) assinarMembros(); else registrarMembro();
+  const col = fs.collection(FB.db, 'equipes', cfg.codigo, 'solicitacoes');
+  if (_offMov) _offMov();
+  /* O Marcelo busca tudo do mês atual. Cada pessoa busca só o que ela lançou e ainda está ativo
+     (na tela aparece só o mês atual; as dos meses anteriores o app do Marcelo desativa) */
+  const q = GESTOR ? fs.query(col, fs.where('dia', '>=', inicioMes()))
+                   : fs.query(col, fs.where('uid','==',UID), fs.where('ativo','==',true));
+  _vistos = null;
+  _offMov = fs.onSnapshot(q, snap=>{
+    st.mov = snap.docs.filter(d=>!ehMembro(d.id)).map(d=>Object.assign({id: d.id}, d.data()));
+    dadosProntos = true;
+    /* no app do Marcelo, mostra na tela quando chega solicitação nova de alguém */
+    if (GESTOR && _vistos){
+      const novos = st.mov.filter(x=>!_vistos.has(x.id) && x.uid !== UID);
+      const mudaram = st.mov.filter(x=>_vistos.has(x.id) && altT(x) && altT(x) !== _vistos.get(x.id) && x.uid !== UID);
+      const excl = mudaram.filter(excluida), alterados = mudaram.filter(x=>!excluida(x));
+      if (novos.length) toast(novos.length===1 ? 'Nova solicitação de ' + (novos[0].por || 'alguém') : novos.length + ' novas solicitações');
+      else if (excl.length) toast(excl.length===1 ? (excl[0].por || 'Alguém') + ' excluiu uma solicitação' : excl.length + ' solicitações excluídas');
+      else if (alterados.length) toast(alterados.length===1 ? (alterados[0].por || 'Alguém') + ' alterou uma solicitação' : alterados.length + ' solicitações alteradas');
+    }
+    _vistos = new Map(st.mov.map(x=>[x.id, altT(x)]));
+    arrumarMes();
+    render();
+  }, erroAssinatura);
+  if (!_offAviso) _offAviso = fs.onSnapshot(refAviso(cfg.codigo), s=>{
+    const d = s.exists() ? s.data() : null;
+    st.aviso = d && d.topico ? d.topico : null;
+    if (GESTOR && !st.aviso) criarTopico(cfg.codigo);
+    enviarAvisosGuardados(); agendarAvisosReset(); render();
+  }, ()=>{});
+  if (!_offCat) _offCat = fs.onSnapshot(refCat(cfg.codigo), s=>{
+    const d = s.exists() ? s.data() : null;
+    if (d && d.itens && (d.versao || 0) >= CAT_VERSAO){ st.cat = d.itens; st.semCod = Array.isArray(d.semCod) ? d.semCod : []; render(); return; }
+    /* chegou uma lista nova (Mapa do Armazém) neste app: todos já usam ela,
+       e o app do Marcelo troca a lista do Firebase uma vez */
+    st.cat = Object.assign({}, PADRAO); st.semCod = PADRAO_SEM.slice(); render();
+    if (GESTOR && !_trocouLista){ _trocouLista = true; fs.setDoc(refCat(cfg.codigo), docLista()).catch(e=>{ _trocouLista = false; console.warn(e); }); }
+  }, erroAssinatura);
+}
+function pararAssinaturas(){ if (_offMov){ _offMov(); _offMov = null; } if (_offCat){ _offCat(); _offCat = null; } if (_offAviso){ _offAviso(); _offAviso = null; } if (_offMembros){ _offMembros(); _offMembros = null; } if (_offOcultos){ _offOcultos(); _offOcultos = null; } }
+
+/* ====== Membros: quem entrou no app e quando (só para o Eduardo ver).
+   Cada pessoa guarda uma ficha junto das solicitações, no documento membro-UID, porque as regras
+   do Firebase já deixam cada um gravar ali (assim não precisa mexer nas regras).
+   A ficha nunca aparece como solicitação: as listas tiram tudo que começa com "membro-". ====== */
+const ehMembro = id => String(id).startsWith('membro-');
+let _offMembros = null, _offOcultos = null;
+/* quem o Eduardo tirou da lista dele fica em config/membros (só some da lista, a pessoa continua usando o app) */
+const refOcultos = () => FB.fs.doc(FB.db, 'equipes', lerCfg().codigo, 'config', 'membros');
+const aparelho = () => /iPad/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ? 'iPad' : IOS ? 'iPhone' : ANDROID ? 'Android' : 'Computador';
+/* a pessoa atualiza a ficha uma vez por dia (último acesso) */
+function registrarMembro(){
+  if (!ONLINE || GESTOR || !UID) return;
+  const cfg = lerCfg(), dia = hoje();
+  if (cfg.membroDia === dia && cfg.membroUid === UID && cfg.membroNome === cfg.nome) return;
+  let entrou = cfg.membroUid === UID ? cfg.membroEntrou : 0;
+  if (!entrou){ const u = FB.auth.currentUser, t = u && u.metadata ? Date.parse(u.metadata.creationTime) : NaN; entrou = isNaN(t) ? Date.now() : t; }
+  const ficha = {cod: '', nome: '', q: 1, tipo: 'e', t: entrou, desc: '', dia, por: maiusc(cfg.nome || '').slice(0, 60), uid: UID, ativo: true,
+                 alt: {membro: 1, visto: Date.now(), aparelho: aparelho()}};
+  FB.fs.setDoc(FB.fs.doc(FB.db, 'equipes', cfg.codigo, 'solicitacoes', 'membro-' + UID), ficha).then(()=>{
+    const c = lerCfg(); Object.assign(c, {membroDia: dia, membroUid: UID, membroNome: cfg.nome, membroEntrou: entrou}); salvarCfg(c);
+  }).catch(e=>console.warn('ficha do membro', e));
+}
+function assinarMembros(){
+  const fs = FB.fs, col = fs.collection(FB.db, 'equipes', lerCfg().codigo, 'solicitacoes');
+  if (_offMembros) _offMembros();
+  _offMembros = fs.onSnapshot(fs.query(col, fs.where('alt.membro', '==', 1)), snap=>{
+    st.membros = snap.docs.filter(d=>ehMembro(d.id)).map(d=>Object.assign({id: d.id}, d.data())); renderMembros();
+  }, e=>console.warn('membros', e));
+  if (_offOcultos) _offOcultos();
+  _offOcultos = fs.onSnapshot(refOcultos(), s=>{
+    const d = s.exists() ? s.data() : null; st.ocultos = (d && d.ocultos) || {}; renderMembros();
+  }, e=>console.warn('membros ocultos', e));
+}
+function quandoFoi(t){
+  if (!t) return '-';
+  const k = diaDe(t);
+  return (k === hoje() ? 'hoje' : k === somaDias(hoje(), -1) ? 'ontem' : dataCompleta(t)) + ' às ' + hora(t);
+}
+function renderMembros(){
+  if (!GESTOR) return;
+  const ocultos = st.ocultos || {};
+  const ms = (st.membros || []).filter(m=>!ocultos[m.id.slice(7)]).sort((a,b)=>String(a.por).localeCompare(String(b.por)) || (b.alt.visto || 0) - (a.alt.visto || 0));
+  $('contMembros').textContent = ms.length ? '· ' + ms.length : '';
+  if (!ms.length){ $('listaMembros').innerHTML = '<div class="empty">Ninguém entrou no app ainda.</div>'; return; }
+  $('listaMembros').innerHTML = ms.map(m=>{
+    const uid = m.id.slice(7), n = st.mov.filter(x=>x.uid===uid && ativo(x) && !excluida(x)).length;
+    return `<li class="membro"><div class="nm"><b>${esc(m.por || 'sem nome')}</b>
+      <span class="mm">Entrou ${dataCompleta(m.t)} às ${hora(m.t)}${m.alt.aparelho ? ' · ' + esc(m.alt.aparelho) : ''}</span>
+      <span class="mm">Último acesso ${quandoFoi(m.alt.visto)} · ${n} ${n===1?'solicitação':'solicitações'} no mês</span></div>
+      <button type="button" class="reg-x" data-tira="${esc(uid)}" aria-label="Tirar da lista">×</button></li>`;
+  }).join('');
+}
+$('listaMembros').onclick = e=>{
+  const b = e.target.closest('[data-tira]'); if (!b) return;
+  const uid = b.dataset.tira, m = (st.membros || []).find(x=>x.id === 'membro-' + uid); if (!m) return;
+  popup('Tirar ' + maiusc(m.por || 'essa pessoa') + ' da lista?', 'Some só da sua lista de membros. A pessoa continua usando o app normalmente.', ()=>{
+    st.ocultos = Object.assign({}, st.ocultos, {[uid]: Date.now()}); renderMembros();
+    FB.fs.setDoc(refOcultos(), {ocultos: st.ocultos}).then(()=>toast('Tirado da lista')).catch(falhou);
+  });
+};
+
+/* ====== Avisos no celular do Marcelo (app ntfy). O tópico fica guardado no Firebase, não no GitHub ====== */
+let _offAviso = null, _vistos = null, _trocouLista = false;
+const refAviso = codigo => FB.fs.doc(FB.db, 'equipes', codigo || lerCfg().codigo, 'config', 'aviso');
+function criarTopico(codigo){
+  const letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let t = 'ESTOQUE0103-'; const r = new Uint32Array(14); crypto.getRandomValues(r);
+  r.forEach(n=>{ t += letras[n % letras.length]; });
+  FB.fs.setDoc(refAviso(codigo), {topico: t, t: Date.now()}).catch(()=>{});
+}
+const AV_K = 'estoque_avisos';
+/* quando: hora marcada (segundos Unix). O ntfy guarda o aviso e entrega nessa hora (no máximo 3 dias depois) */
+function mandarAviso(topico, titulo, texto, quando){
+  return fetch('https://ntfy.sh/' + encodeURIComponent(topico) + '?title=' + encodeURIComponent(titulo) + (quando ? '&delay=' + quando : ''), {method: 'POST', body: texto, mode: 'no-cors'});
+}
+
+/* Dia do reset (último dia do mês): aviso automático no celular do Marcelo às 9h e às 15h.
+   O app do Marcelo deixa os dois marcados no ntfy quando ele abre o app nos 3 últimos dias do mês.
+   O que já foi marcado fica anotado no Firebase, para não chegar repetido. */
+const TEXTO_RESET = 'Hoje à meia-noite o Lançamento geral, o Meus lançamentos e os lançamentos da equipe ficam vazios. Copie o que precisar antes.';
+function horaSP(k, h){ /* horário de São Paulo, no dia k, às h horas */
+  const [y, m, d] = k.split('-').map(Number), alvo = Date.UTC(y, m - 1, d, h);
+  let t = alvo + 3 * 3600000;
+  for (let i = 0; i < 2; i++){ const p = sp(t); t += alvo - Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute); }
+  return t;
+}
+let _agendandoReset = false;
+async function agendarAvisosReset(){
+  if (!ONLINE || !GESTOR || !FB || !st.aviso || _agendandoReset) return;
+  const mes = mesAtual(), dia = ultimoDiaMes(), agora = Date.now();
+  const alvos = [9, 15].map(h=>({h, t: horaSP(dia, h)})).filter(a=>a.t - agora > 60000 && a.t - agora < 3 * DIA - 300000);
+  if (!alvos.length) return;
+  _agendandoReset = true;
+  try {
+    const ref = FB.fs.doc(FB.db, 'equipes', lerCfg().codigo, 'config', 'reset');
+    const s = await FB.fs.getDoc(ref), d = s.exists() ? s.data() : {};
+    const feitos = d.mes === mes && Array.isArray(d.horas) ? d.horas : [];
+    const marcados = [];
+    for (const a of alvos.filter(a=>!feitos.includes(a.h))){
+      try { await mandarAviso(st.aviso, 'Dia do reset', TEXTO_RESET, Math.round(a.t / 1000)); marcados.push(a.h); } catch(e){}
+    }
+    if (marcados.length) await FB.fs.setDoc(ref, {mes, horas: feitos.concat(marcados)});
+  } catch(e){ console.warn(e); }
+  finally { _agendandoReset = false; }
+}
+/* Avisa o Marcelo no celular. Solicitação nova: "NOME - CÓDIGO - PRODUTO - QTD - DESCRIÇÃO".
+   Alterada: "NOME ALTEROU - ..." e, embaixo, "ANTES - " com o que mudou */
+function avisarGestor(x, antes, excluiu){
+  if (!ONLINE || GESTOR) return;
+  const r = resolver(x.cod, x.nome), quem = x.por || nomeAtual();
+  const linha = [r.cod, r.nome, 'QTD ' + x.q, x.desc];
+  let aviso;
+  if (excluiu) aviso = {titulo: 'Solicitação excluída', texto: maiusc([quem + ' excluiu', ...linha].filter(Boolean).join(' - '))};
+  else if (antes){
+    const ra = resolver(antes.cod, antes.nome), mudou = [];
+    if (ra.cod !== r.cod || ra.nome !== r.nome) mudou.push(ra.cod, ra.nome);
+    if (antes.q !== x.q) mudou.push('QTD ' + antes.q);
+    if ((antes.desc || '') !== (x.desc || '')) mudou.push(antes.desc);
+    const txAntes = mudou.filter(Boolean).join(' - ');
+    aviso = {titulo: 'Solicitação alterada', texto: maiusc([quem + ' alterou', ...linha].filter(Boolean).join(' - ') + (txAntes ? '\nAntes - ' + txAntes : ''))};
+  } else aviso = {titulo: 'Nova solicitação', texto: maiusc([quem, ...linha].filter(Boolean).join(' - '))};
+  let fila = []; try { fila = JSON.parse(localStorage.getItem(AV_K)) || []; } catch(e){}
+  fila.push(aviso); try { localStorage.setItem(AV_K, JSON.stringify(fila.slice(-20))); } catch(e){}
+  enviarAvisosGuardados();
+}
+let _enviando = false;
+async function enviarAvisosGuardados(){
+  if (_enviando || !st.aviso || navigator.onLine === false) return;
+  let fila = []; try { fila = JSON.parse(localStorage.getItem(AV_K)) || []; } catch(e){}
+  if (!fila.length) return;
+  _enviando = true;
+  try {
+    while (fila.length){
+      const a = typeof fila[0] === 'string' ? {titulo: 'Nova solicitação', texto: fila[0]} : fila[0];
+      await mandarAviso(st.aviso, a.titulo, a.texto);
+      fila.shift(); try { localStorage.setItem(AV_K, JSON.stringify(fila)); } catch(e){}
+    }
+  } catch(e){ /* sem internet: tenta de novo quando voltar */ }
+  _enviando = false;
+}
+window.addEventListener('online', enviarAvisosGuardados);
+$('avisoCopiar').onclick = ()=>{ try { navigator.clipboard.writeText(st.aviso || '').then(()=>toast('Tópico copiado'), ()=>toast('Não deu para copiar')); } catch(e){ toast('Não deu para copiar'); } };
+$('avisoTestar').onclick = ()=>{
+  if (!st.aviso) return;
+  mandarAviso(st.aviso, 'Teste do Estoque 0103', 'Se você está vendo isso, os avisos estão funcionando.').then(()=>toast('Aviso de teste enviado'), ()=>toast('Sem internet'));
+};
+function erroAssinatura(e){
+  console.warn(e);
+  if (e && e.code==='permission-denied'){ pararAssinaturas(); etapa('form', 'Sem permissão. Confira o código da equipe.'); }
+  else toast('Problema para carregar. Tente abrir o app de novo.');
+}
+function mostrarQuem(){ const nome = GESTOR ? MEU_NOME : lerCfg().nome; $('quem').hidden = !ONLINE || !UID || !nome; $('quem').textContent = nome || ''; mostrarInstalar(); }
+function perguntarSair(){
+  popup(GESTOR ? 'Sair da sua conta?' : 'Sair deste celular?',
+    GESTOR ? 'Para entrar de novo, use o seu e-mail e a sua senha.' : 'Para entrar de novo, você vai digitar o seu nome.',
+    async ()=>{
+      pararAssinaturas();
+      try { await FB.au.signOut(FB.auth); } catch(e){}
+      const c = lerCfg(); delete c.nome; salvarCfg(c);
+      st.mov = []; UID = null; mostrarQuem(); limparForm(); render(); etapa('form');
+    });
+}
+$('quem').onclick = ()=>{
+  if (!GESTOR) return perguntarSair();
+  $('painelTit').textContent = MEU_NOME;
+  $('avisoBox').hidden = !st.aviso;
+  if (st.aviso) $('avisoTopico').textContent = st.aviso;
+  $('painel').hidden = false;
+};
+const fecharPainel = ()=>{ $('painel').hidden = true; };
+$('painelFechar').onclick = fecharPainel;
+$('painel').addEventListener('click', e=>{ if (e.target.id==='painel') fecharPainel(); });
+$('painelSair').onclick = ()=>{ fecharPainel(); perguntarSair(); };
+/* ====== Instalar o app na tela inicial ====== */
+const UA = navigator.userAgent || '';
+const IOS = /iPhone|iPad|iPod/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const ANDROID = /Android/i.test(UA);
+const SAMSUNG = /SamsungBrowser/i.test(UA);
+const instalado = () => navigator.standalone === true || ['standalone', 'fullscreen', 'minimal-ui'].some(m => matchMedia('(display-mode: ' + m + ')').matches);
+const codigoValido = c => /^[A-Z0-9]{3,40}$/.test(c || '');
+const PASTA = location.pathname.replace(/[^/]*$/, '') || '/';
+function lerCookie(n){ try { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; } catch(e){ return ''; } }
+function guardarCookie(n, v){ try { document.cookie = n + '=' + encodeURIComponent(v) + '; max-age=31536000; path=' + PASTA + '; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : ''); } catch(e){} }
+
+/* Passo 1 do guia do iPhone: onde fica o Compartilhar muda com o aparelho.
+   iOS 26 (Safari 26): fica dentro do ⋯ no canto de baixo. Antes: no meio da barra de baixo.
+   iPad e Chrome do iPhone: lá em cima. A seta aponta para o lugar quando ele fica embaixo. */
+const ICONE_COMP = '<span class="nw"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M8 10H7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1"/></svg>.</span>';
+function passoCompartilhar(){
+  const ipad = /iPad/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const versao = +((UA.match(/Version\/(\d+)/) || [])[1] || 0);
+  if (/CriOS|FxiOS|EdgiOS/.test(UA)) return {txt: 'Toque em <b>Compartilhar</b> lá em cima, ao lado do endereço ' + ICONE_COMP, seta: ''};
+  if (ipad) return {txt: 'Toque em <b>Compartilhar</b> lá em cima ' + ICONE_COMP, seta: ''};
+  if (versao >= 26) return {txt: 'Toque no <b class="nw">⋯</b> aqui embaixo e depois em <b>Compartilhar</b> ' + ICONE_COMP, seta: 'baixo-dir'};
+  return {txt: 'Toque em <b>Compartilhar</b> aqui embaixo ' + ICONE_COMP, seta: 'baixo-meio'};
+}
+/* Guia do Android: Chrome tem o menu ⋮ em cima; a Internet Samsung tem o ≡ embaixo */
+function passosAndroid(){
+  if (SAMSUNG) return {p1: 'Toque no <b>≡</b> aqui embaixo.', p2: 'Toque em <b>Adicionar página a</b>, depois em <b>Tela inicial</b> e em <b>Adicionar</b>.', seta: 'baixo-dir'};
+  if (/Chrome\//.test(UA) && !/OPR\/|EdgA\/|Firefox\/|MiuiBrowser|UCBrowser|YaBrowser/.test(UA))
+    return {p1: 'Toque no <b>⋮</b> aqui em cima.', p2: 'Toque em <b>Instalar app</b> (ou <b>Adicionar à tela inicial</b>) e depois em <b>Instalar</b>.', seta: 'cima-dir'};
+  return {p1: 'Abra o menu do navegador.', p2: 'Toque em <b>Instalar</b> ou em <b>Adicionar à tela inicial</b>.', seta: ''};
+}
+/* O Android só instala de verdade quando o site tem os ícones do app */
+async function iconesNoSite(){
+  try { const r = await fetch('icone-192.png', {method: 'HEAD', cache: 'no-store'}); return r.ok; } catch(e){ return false; }
+}
+
+/* O link pode trazer o código da equipe depois do # (…/Work-Code/#CODIGO), assim ninguém digita o código.
+   O código continua fora dos arquivos do site. Ele também vai num cookie, que o iPhone copia
+   para o app quando a pessoa coloca o site na Tela de Início. */
+function codigoDoLink(){
+  if (!ONLINE || GESTOR) return;
+  let h = '';
+  try { h = decodeURIComponent((location.hash || '').slice(1)).trim().toUpperCase().replace(/\s+/g, ''); } catch(e){}
+  if (location.hash) try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+  const c = lerCfg();
+  if (codigoValido(h)){
+    if (!c.nome){ c.codigo = h; salvarCfg(c); } /* quem já entrou continua como está */
+    guardarCookie('e0103c', h);
+  } else if (!codigoValido(c.codigo)){
+    const k = lerCookie('e0103c');
+    if (codigoValido(k)){ c.codigo = k; salvarCfg(c); }
+  }
+}
+
+/* Android: botão Instalar (quando o navegador deixa) ou o caminho pelo menu */
+let pedidoInstalar = null;
+const naTelaAndroid = () => !$('entInstAnd').hidden;
+window.addEventListener('beforeinstallprompt', e=>{
+  if (GESTOR) return;
+  e.preventDefault(); pedidoInstalar = e;
+  const c = lerCfg(); if (c.instalado){ c.instalado = false; salvarCfg(c); } /* esse aviso só vem quando o app não está instalado */
+  mostrarInstalar(); if (naTelaAndroid()) etapa('instalarAnd');
+});
+window.addEventListener('appinstalled', ()=>{
+  pedidoInstalar = null;
+  if (GESTOR) return;
+  const c = lerCfg(); c.instalado = true; salvarCfg(c); mostrarInstalar();
+  if (naTelaAndroid()) etapa('instalarAnd');
+  toast('Pronto. Agora abra pelo ícone na tela.');
+});
+function mostrarInstalar(){
+  const c = lerCfg();
+  const ver = ONLINE && !GESTOR && !!UID && ANDROID && !instalado() && !c.instalado;
+  $('cardInstalar').hidden = !ver;
+  if (!ver) return;
+  $('instBtn').hidden = !pedidoInstalar;
+  $('instTx').innerHTML = pedidoInstalar ? 'Toque em <b>Instalar</b> para o ícone aparecer na tela inicial.'
+    : SAMSUNG ? 'Toque em <b>≡</b> (embaixo), depois em <b>Adicionar página a</b> e em <b>Tela inicial</b>.'
+    : 'Toque em <b>⋮</b> (em cima) e depois em <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.';
+}
+$('instBtn').onclick = async ()=>{
+  const p = pedidoInstalar; if (!p) return;
+  pedidoInstalar = null; mostrarInstalar();
+  try { await p.prompt(); await p.userChoice; } catch(e){}
+};
+$('instAndBtn').onclick = async ()=>{
+  const p = pedidoInstalar; if (!p) return;
+  pedidoInstalar = null; etapa('instalarAnd');
+  try { await p.prompt(); await p.userChoice; } catch(e){}
+};
+
+function atualizaRede(){ $('offline').hidden = !ONLINE || navigator.onLine !== false; }
+window.addEventListener('online', atualizaRede); window.addEventListener('offline', atualizaRede);
+atualizaRede();
+
+codigoDoLink();
+if (ONLINE) iniciarOnline(); else limparDiasAntigos();
+render();
+
+if ('serviceWorker' in navigator && location.protocol==='https:') {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch(e) {}
+</script>
+</body>
+</html>
